@@ -1,0 +1,35 @@
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navLogo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navSearch {
+    display: flex;
+    align-items: center;
+}
+
+.searchForm {
+    display: flex;
+    justify-content: center;
+}
+
+.searchInput {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    width: 200px;
+}
+
+.searchInput:focus {
+    outline: none;
+    border: 1px solid #ddd;
+}

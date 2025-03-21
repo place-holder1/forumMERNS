@@ -4,9 +4,9 @@ import { createUser, deleteUser, getUser, updateUser } from "../controllers/user
 
 const router = express.Router();
 
-router.get("/", getUser)
-router.get("/", createUser)
-router.get("/", updateUser)
-router.get("/", deleteUser)
+router.get("/", getUser);
+router.get("/", createUser);
+router.get("/", updateUser);
+router.get("/", deleteUser);
 
 export default router;
