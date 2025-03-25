@@ -33,3 +33,28 @@
     outline: none;
     border: 1px solid #ddd;
 }
+
+.navAccount {
+    width: 7.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.profile_active {
+    width: 0px;
+}
+
+.logRegister {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.null_login {
+    float: left;
+}
+
+.null_register {
+    float: right;
+}

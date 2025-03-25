@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState("");
+    const [login, setLogin] = useState(false);
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
@@ -32,6 +33,12 @@ const Navbar = () => {
         // Supposedly to get API from here
     }, []);
 
+    useEffect(() => {
+        // Check if the user is logged in (can be from localStorage, cookies, or an API)
+        const userLoggedIn = localStorage.getItem('userLoggedIn'); // Example of getting login status from localStorage
+        setLogin(userLoggedIn === 'true'); // Set login state to true or false based on localStorage
+    }, []);
+
     return (
         <nav className={styles.navbar}>
             <div className={styles.navLogo}>
@@ -55,8 +62,17 @@ const Navbar = () => {
                 </form>
             </div>
 
-            <div className="navAccount">
-
+            <div className={styles.navAccount}>
+                {login ? (
+                    <div className={styles.profile_active}>
+                        <Link to="/profile">Profile</Link>
+                    </div>
+                ) : (
+                    <div className={styles.logRegister}>
+                        <Link className={styles.null_login} to="/login">Login</Link>
+                        <Link className={styles.null_register}  to="/register">Register</Link>
+                    </div>
+                )}
             </div>
 
         </nav>
