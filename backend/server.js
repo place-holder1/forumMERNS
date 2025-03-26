@@ -10,7 +10,17 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+app.use((req, res, next) => {
+    res.setHeader(
+        "Content-Security-Policy",
+        "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+    );
+    next();
+});
+
 const PORT = process.env.PORT || 5000;
+
+const __dirname = path.resolve();
 
 app.post("/api/users", async (req, res) => {
     const user = req.body;
@@ -31,6 +41,13 @@ app.post("/api/users", async (req, res) => {
 
     res.send("Server is ready123");
 });
+
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "/frontend/dist")));
+	app.get("*", (req, res) => {
+		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+	});
+}
 
 // console.log(process.env.MONGO_URI);
 
