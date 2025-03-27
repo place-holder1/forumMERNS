@@ -10,14 +10,6 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-app.use((req, res, next) => {
-    res.setHeader(
-        "Content-Security-Policy",
-        "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
-    );
-    next();
-});
-
 const PORT = process.env.PORT || 5000;
 
 const __dirname = path.resolve();
