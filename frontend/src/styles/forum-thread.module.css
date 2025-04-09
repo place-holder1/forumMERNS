@@ -1,0 +1,148 @@
+/* Imported from Elijah's PHP forum. Must be cleaned up for React. */
+
+.category-container {
+
+}
+
+.category-header {
+
+    background: repeat scroll 0 0 var(--color-1) !important;
+    border-color: #F4A31C !important;
+    /* box-shadow: 0 1px 0 #F4A31C inset !important; */
+
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+
+    padding: 11px;
+    color: white;
+}
+
+.topic-container {
+    background-color: var(--color-2);
+    max-height: 200px;
+    padding: 15px;
+    border: 2px black;
+    border-top: 5px solid var(--color-4);
+
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.topic-container:nth-of-type(even){
+    background-color: white;
+}
+
+.topic-container:last-child {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    margin-bottom: 45px;
+}
+
+.topic-image {
+    width: 46px;
+}
+
+.topic-text-container {
+    flex-grow: 1;
+    padding: 15px;
+}
+
+h2 .topic-header {
+    background-color: antiquewhite;
+}
+
+.topic-content {
+    background-color: aquamarine;
+}
+
+.topic-stats {
+    display: inline-flex;
+    align-items: center;
+    width: 140px;
+    min-width: 140px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.pairs {
+    overflow: hidden;
+}
+
+.pairs-stats {
+    display: inline-table;
+    text-align: center;
+}
+
+.topic-stats>dl.pairs.pairs-stats {
+    width: 50%;
+    float: left;
+    margin: 0;
+    padding: 0 6px;
+    /* border-right: 1px solid #e0e0e0; */
+}
+
+.pairs.pairs-stats>dt {
+    display: table-row;
+    font-size: 16px;
+}
+
+.pairs>dt {
+    padding: 0;
+    margin: 0;
+    color: #8a8a8a;
+}
+
+dd {
+    margin-inline-start: 40px;
+}
+
+.pairs.pairs-stats>dd {
+    display: table-row;
+}
+
+.pairs>dd {
+    padding: 0;
+    margin: 0;
+}
+
+.topic-recent-post {
+    display: flex;
+    vertical-align: middle;
+    width: 280px;
+    min-width: 230px;
+    padding: 15px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.topic-post-icon {
+    padding-right: 15px;
+    float: left;
+}
+
+/* .recent-post-row-block {
+
+} */
+
+.recent-post-row-block {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 0;
+    max-width: 100%;
+    flex-direction: column;
+    width: 100%;
+}
+
+.recent-post-row {
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    color: #76818d;
+    max-width: 100%;
+}

@@ -3,6 +3,8 @@ import {HashRouter, Route, Routes } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import ForumPage from './pages/ForumPage';
 import Navbar from './components/Navbar';
+import ChatWindow from "./components/ChatWindow";
+import Footer from "./components/Footer";
 import './App.css'
 
 //Trying to aim for https://forums.pcgamer.com/trending/threads.1/ style
@@ -10,11 +12,25 @@ import './App.css'
 function App() {
   return (
     <HashRouter>
-      <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/create" element={<ForumPage/>} />
-      </Routes>
+      <header>
+        <Navbar/>
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/create" element={<ForumPage/>} />
+        </Routes>
+      </main>
+      <ChatWindow/>
+      <footer>
+        <Footer/>
+      </footer>
     </HashRouter>
+
+
+    // To refresh the page every time:
+    // npm run build
+    // npm run start
   )
 }
 
