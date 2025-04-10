@@ -7,6 +7,7 @@ const ChatWindow = () => {
     { id: 2, user: "Bob", text: "Hi! Welcome to the forum chat 👋" }
   ]);
   const [input, setInput] = useState("");
+  const [isOpen, setIsOpen] = useState(true);
 
   const handleSend = () => {
     if (!input.trim()) return;
@@ -16,9 +17,16 @@ const ChatWindow = () => {
 
   return (
     <div className={styles.chatContainer}>
-      <div className={styles.chatHeader}>
-        Forum Chat
+      <div className={styles.chatHeader}
+      onClick={() => setIsOpen(prev => !prev)}>
+        <span className={styles.toggleWindow}>{isOpen ? console.log("Hi") : console.log("Bye")}Forum Chat</span>
       </div>
+
+      {isOpen && ( 
+        <>
+      
+      </>
+    )}
 
       <div className={styles.chatMessages}>
         {messages.map(msg => (
