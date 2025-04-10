@@ -2,5 +2,7 @@
     min-height: 1100px;
     display: block;
     margin: 0 auto;
+    align-items: center;
     /* background-color: azure; */
 }
+
