@@ -1,0 +1,27 @@
+body{
+    /* color scheme */
+    --primary-background-color: #050505;
+    --secondary-backrgound-color: #3F13A4;
+    --light-background-color: #FAFAFA;
+    --text-color: #FAFAFA;
+    --light-text-color: #3F13A4;
+    --button-background-color: #6B35E8;
+    --button-text-color: #FAFAFA;
+    --button-hover-background-color: var(--secondary-background-color);
+    --button-hover-text-color: #595959;
+    --button-border-color: #ccc;
+    --link-color: #6B35E8;
+    --link-hover-color: var(--text-color);
+    /* font */
+    --font-family: 'Roboto', sans-serif;
+    /* break points */
+    --mobile: 768px;
+    --tablet: 1024px;
+    /* border */
+    --border-radius: 8px;
+    --border-color: #595959;
+    /* shadow */
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+}

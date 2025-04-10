@@ -5,6 +5,7 @@ import ForumPage from './pages/ForumPage';
 import Navbar from './components/Navbar';
 import ChatWindow from "./components/ChatWindow";
 import Footer from "./components/Footer";
+import './styles/global.css'
 import './App.css'
 
 //Trying to aim for https://forums.pcgamer.com/trending/threads.1/ style

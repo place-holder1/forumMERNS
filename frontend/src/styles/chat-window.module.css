@@ -1,15 +1,10 @@
-:root {
-    --color1: #842842;
-    --color2: #248248;
-}
-
 .chatContainer {
     position: fixed;
     bottom: 0;
     right: 1.5rem;
     width: 25rem;
     height: 30rem;
-    background-color: var(--color1);
+    background-color: var(--secondary-backrgound-color);
     border: 1px solid #ccc;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -30,7 +25,7 @@
   }
   
   .chatHeader {
-    background-color: var(--color2);
+    background-color: var(--button-backrgound-color);
     padding: 12px 16px;
     font-weight: bold;
     border-bottom: 1px solid #e2e2e2;
@@ -39,7 +34,6 @@
   .chatMessages {
     flex: 1;
     padding: 12px;
-    margin-bottom: 1rem;
     overflow-y: auto;
     background-color: #000000;
   }
@@ -67,13 +61,13 @@
   
   .chatInputArea button {
     padding: 8px 16px;
-    background-color: var(--color1);
-    color: white;
+    background-color: var(--secondary-backrgound-color);
+    color: var(--button-backrgound-color);
     border: none;
     border-radius: 6px;
     cursor: pointer;
   }
   
   .chatInputArea button:hover {
-    background-color: var(--color2);
+    background-color: var(--button-backrgound-color);
   }

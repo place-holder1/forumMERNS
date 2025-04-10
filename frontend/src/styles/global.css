@@ -1,6 +1,6 @@
 body {
     font-family: var(--font-family);
-    background-color: var(--third-background-color);
+    background-color: var(--primary-background-color);
     color: var(--text-color);
     font-size: 1rem;
     margin: 0;
@@ -9,9 +9,9 @@ body {
   main {
     height: 100%;
     min-height: 100vh;
-    &.dark {
-      background-color: var(--dark-background-color);
-      color: var(--dark-text-color);
+    &.light {
+      background-color: var(--light-background-color);
+      color: var(--light-text-color);
       h1,
       h2,
       h3,
@@ -19,7 +19,7 @@ body {
       h5,
       h6,
       p {
-        color: var(--dark-text-color);
+        color: var(--light-text-color);
       }
     }
   }
@@ -216,3 +216,46 @@ body {
     background-color: var(--button-hover-background-color);
     color: var(--button-hover-text-color);
   }
+
+  #root {
+    margin: 0 auto;
+    /* padding: 2rem; */
+    /* text-align: center; */
+  }
+  
+  .logo {
+    height: 6rem;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+  }
+  .logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+  }
+  .logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+  }
+  
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+      animation: logo-spin infinite 20s linear;
+    }
+  }
+  
+  .card {
+    padding: 2rem;
+  }
+  
+  .read-the-docs {
+    color: #888;
+  }
+  
