@@ -1,29 +1,44 @@
 /* Imported from Elijah's PHP forum. Must be cleaned up for React. */
 
-.category-container {
+/* Dashes will have to be underscores instead because of React */
+
+.category_container {
 
 }
 
-.category-header {
+.category_header {
 
-    background: repeat scroll 0 0 var(--color-1) !important;
-    border-color: #F4A31C !important;
+    /* background: repeat scroll 0 0 var(--color-1) !important; */
+    background-color: #F4A31C;
+    /* height: 50px; */
+    border-color: red !important;
     /* box-shadow: 0 1px 0 #F4A31C inset !important; */
-
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-
-    padding: 11px;
+    text-align: left;
+    
+    margin: 0;
+    padding: .5rem;
     color: white;
+    display: block;
 }
 
-.topic-container {
-    background-color: var(--color-2);
-    max-height: 200px;
-    padding: 15px;
+.category_header::before {
+    content: " ";
+    display: table;
+}
+
+.desc {
+    display: block;
+    font-size: 1rem;
+}
+
+.topic_container {
+    /* background-color: var(--color-2); */
+    background-color: #76818d;
+    height: 100px;
+    padding-top: 15px;
     border: 2px black;
     border-top: 5px solid var(--color-4);
-
+    
     display: flex;
     align-items: center;
     width: 100%;
@@ -31,34 +46,34 @@
 
 }
 
-.topic-container:nth-of-type(even){
-    background-color: white;
+.topic_container:nth-of-type(even){
+    background-color: red;
 }
 
-.topic-container:last-child {
+.topic_container:last-child {
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     margin-bottom: 45px;
 }
 
-.topic-image {
+.topic_image {
     width: 46px;
 }
 
-.topic-text-container {
+.topic_text_container {
     flex-grow: 1;
     padding: 15px;
 }
 
-h2 .topic-header {
+h2 .topic_header {
     background-color: antiquewhite;
 }
 
-.topic-content {
+.topic_content {
     background-color: aquamarine;
 }
 
-.topic-stats {
+.topic_stats {
     display: inline-flex;
     align-items: center;
     width: 140px;
