@@ -1,4 +1,4 @@
-import { createContext, useState, useLayoutEffect, useContext } from "react";
+import { createContext, useState, useLayoutEffect } from "react";
 
 export const AuthContext = createContext();
 

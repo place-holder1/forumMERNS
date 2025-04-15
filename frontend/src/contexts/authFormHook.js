@@ -8,7 +8,7 @@ function useAuthForm(isRegister) {
     const navigate = useNavigate();
     const [errors, setErrors] = useState('');
     const [submitting, setSubmitting] = useState(false);
-    const { login } = useContext(AuthContext);
+    //const { login } = useContext(AuthContext);
     const [successMessage, setSuccessMessage] = useState("");
     const [data, setData] = useState({
         username: "",
@@ -46,7 +46,7 @@ function useAuthForm(isRegister) {
                     email: "",
 
                 });
-                login();
+                //login();
                 navigate("/");
             } else {
                 setSuccessMessage('');
