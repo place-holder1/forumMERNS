@@ -1,8 +1,17 @@
 .mainContainer {
+    width: 100%;
     min-height: 1100px;
-    display: block;
+    display: inline-flex;
+    justify-content: center;
     margin: 0 auto;
-    align-items: center;
+    /* align-items: center; */
     /* background-color: azure; */
 }
 
+.mainContent {
+    min-width: 1200px;
+    max-width: 1200px;
+    display: flex;
+    /* align-items: center; */
+    justify-content: space-evenly;
+}

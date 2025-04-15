@@ -1,0 +1,11 @@
+.frontMain {
+    width: 60%;
+    height: 500px;
+    background-color: aqua;
+}
+
+.frontSide {
+    width: 25%;
+    height: 500px;
+    background-color: aqua;
+}

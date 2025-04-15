@@ -1,4 +1,4 @@
-import styles from "../styles/forum-thread.module.css"
+import styles from "../../styles/forum-thread.module.css"
 
 const forumThread = () => {
  
