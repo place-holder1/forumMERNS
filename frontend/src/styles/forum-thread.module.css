@@ -35,7 +35,7 @@
     /* background-color: var(--color-2); */
     background-color: #76818d;
     height: 100px;
-    padding-top: 15px;
+    /* padding-top: 15px; */
     border: 2px black;
     border-top: 5px solid var(--color-4);
     
@@ -57,12 +57,12 @@
 }
 
 .topic_image {
-    width: 46px;
+    width: 3rem;
 }
 
 .topic_text_container {
     flex-grow: 1;
-    padding: 15px;
+    padding: 1rem;
 }
 
 h2 .topic_header {
@@ -76,33 +76,33 @@ h2 .topic_header {
 .topic_stats {
     display: inline-flex;
     align-items: center;
-    width: 140px;
-    min-width: 140px;
+    /* width: 140px;
+    min-width: 140px; */
     vertical-align: middle;
     text-align: center;
-    padding: 15px 0;
+    padding: 1rem 0;
 }
 
 .pairs {
     overflow: hidden;
 }
 
-.pairs-stats {
+.pairs_stats {
     display: inline-table;
     text-align: center;
 }
 
-.topic-stats>dl.pairs.pairs-stats {
+.topic_stats>dl.pairs.pairs_stats {
     width: 50%;
     float: left;
     margin: 0;
-    padding: 0 6px;
+    padding: 0 .5rem;
     /* border-right: 1px solid #e0e0e0; */
 }
 
-.pairs.pairs-stats>dt {
+.pairs.pairs_stats>dt {
     display: table-row;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .pairs>dt {
@@ -115,7 +115,7 @@ dd {
     margin-inline-start: 40px;
 }
 
-.pairs.pairs-stats>dd {
+.pairs.pairs_stats>dd {
     display: table-row;
 }
 
@@ -124,19 +124,21 @@ dd {
     margin: 0;
 }
 
-.topic-recent-post {
-    display: flex;
+.topic_recent_post {
     vertical-align: middle;
-    width: 280px;
-    min-width: 230px;
-    padding: 15px;
+    /* width: 280px; */
+    /* min-width: 230px; */
+    min-width: 10rem;
+    padding: 1rem;
     display: inline-flex;
     align-items: center;
-    font-size: 1.3rem;
+    /* font-size: .5rem; */
 }
 
-.topic-post-icon {
-    padding-right: 15px;
+.topic_post_icon {
+    width: 3rem;
+    height: 3rem;
+    padding-right: 1rem;
     float: left;
 }
 
@@ -144,20 +146,27 @@ dd {
 
 } */
 
-.recent-post-row-block {
+.recent_post_row_block {
     display: flex;
     flex-wrap: wrap;
-    min-width: 0;
-    max-width: 100%;
+    /* min-width: 0; */
+    /* max-width: 100%; */
     flex-direction: column;
-    width: 100%;
+    /* font-size: .5rem; */
+    /* width: 100%; */
 }
 
-.recent-post-row {
+.recent_post_row {
     overflow: hidden;
     white-space: nowrap;
     word-wrap: normal;
     text-overflow: ellipsis;
     color: #76818d;
-    max-width: 100%;
+    /* font-size: .75rem; */
+    /* max-width: 100%; */
+}
+
+.recent_post_row p, .recent_post_row a {
+    font-size: 1rem;
+    margin: 0 auto;
 }

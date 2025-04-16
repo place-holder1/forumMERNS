@@ -15,11 +15,26 @@ const LoginForm = ({ isRegister = false }) => {
         <form onSubmit={handleSubmit} className={style["login-form"]}>
             <h1>{isRegister ? "Register" : "Login"}</h1>
             <label htmlFor="username">Username</label>
-            <input ref={nameRef} type="text" id="username" name="username" required value={data.username} onChange={handleChange} />
+            <input ref={nameRef} 
+                type="text" 
+                id="username" 
+                name="username" required 
+                value={data.username} 
+                onChange={handleChange} />
             <label htmlFor="password">Password</label>
-            <input type="password" id="password" name="password" required minLength={8} value={data.password} onChange={handleChange} />
-            {isRegister && <><label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" required value={data.email} onChange={handleChange} /></>}
+            <input type="password" 
+                id="password" 
+                name="password" 
+                required minLength={8} 
+                value={data.password} 
+                onChange={handleChange} />
+            {isRegister && <>
+            <label htmlFor="email">Email</label>
+                <input type="email" 
+                    id="email" 
+                    name="email" 
+                    required value={data.email} 
+                    onChange={handleChange} /></>}
             <button
                 type="submit"
                 disabled={

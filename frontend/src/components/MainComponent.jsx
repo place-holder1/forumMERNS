@@ -7,19 +7,16 @@ import TabLinks from "./forumComponents/TabLinks";
 const MainComponent = () => {
     
     return(
-        <>
-        <div className="TabLinks">
-                <TabLinks></TabLinks>
-            </div>
-        <div className={styles.mainContainer}>
-            
-            <div className={styles.mainContent}>
-                {/* <h2>HELLO!</h2> */}
-                <FrontMain/>
-                <FrontSide/>
+        <div className={styles.everything}>
+            <TabLinks></TabLinks>
+            <div className={styles.mainContainer}>
+                <div className={styles.mainContent}>
+                    {/* <h2>HELLO!</h2> */}
+                    <FrontMain/>
+                    <FrontSide/>
+                </div>
             </div>
         </div>
-        </>
     )
 }
 

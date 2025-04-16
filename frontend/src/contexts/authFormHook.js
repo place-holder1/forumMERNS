@@ -25,6 +25,7 @@ function useAuthForm(isRegister) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSubmitting(true);
+
         const formData = new FormData();
         formData.append("username", data.username.trim());
         formData.append("password", data.password.trim());
@@ -32,7 +33,8 @@ function useAuthForm(isRegister) {
         formData.append("action", isRegister ? "register" : "login");
         try {
 
-            const response = await fetch(`https://web.ics.purdue.edu/~omihalic/profile-app/auth.php`, {
+            // const response = await fetch(`https://web.ics.purdue.edu/~omihalic/profile-app/auth.php`, {
+            const response = await fetch("http://localhost:5000/api/users", {
                 method: "POST",
                 body: formData,
             });
