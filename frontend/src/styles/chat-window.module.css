@@ -23,7 +23,25 @@
       transform: translateY(0);
     }
   }
+
+  @keyframes slideOut {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(90%);
+    }
+  }
+
+  .open {
+    animation: slideIn 1.5s ease-out forwards;
+  }
   
+  .closed {
+    animation: slideOut 1.5s ease-in forwards;
+    pointer-events: none;
+  }
+
   .chatHeader {
     background-color: var(--button-backrgound-color);
     padding: .75rem 1rem;

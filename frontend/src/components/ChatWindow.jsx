@@ -16,10 +16,10 @@ const ChatWindow = () => {
   };
 
   return (
-    <div className={styles.chatContainer}>
+    <div className={`${styles.chatContainer} ${isOpen ? styles.open : styles.closed}`}>
       <div className={styles.chatHeader}
       onClick={() => setIsOpen(prev => !prev)}>
-        <span className={styles.toggleWindow}>{isOpen ? console.log("Hi") : console.log("Bye")}Forum Chat</span>
+        <span className={`${styles.toggleWindow} ${isOpen ? styles.open : styles.closed}`}>Forum Chat</span>
       </div>
 
       {isOpen && ( 
