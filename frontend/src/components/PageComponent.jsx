@@ -1,6 +1,7 @@
 import styles from "../styles/main.module.css"
 import TabLinks from "./forumComponents/TabLinks"
 import ForumTopicThread from "./forumComponents/ForumTopicThread"
+import TopicsList from "./forumComponents/TopicsList"
 // import Wrapper from "./Wrapper";
 
 const MainComponent = () => {
@@ -11,7 +12,7 @@ const MainComponent = () => {
             <div className={styles.mainContainer}>
                 <div className={styles.mainContent}>
                     {/* <h2>HELLO!</h2> */}
-                    <ForumTopicThread />
+                    <TopicsList/>
                 </div>
             </div>
         </div>

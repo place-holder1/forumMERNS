@@ -15,10 +15,6 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: [true, "can't be blank"],
   },
-  password: {
-    type: String,
-    required: [true, "can't be blank"],
-  },
 }, {
   timestamps: true // createdAt, updatedAt
 });
