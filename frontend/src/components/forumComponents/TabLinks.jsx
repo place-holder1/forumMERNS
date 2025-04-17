@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import styles from "../../styles/main.module.css"
 
 const forumTabs = [
-    { name: "Home", path: "/home"},
+    { name: "Home", path: "/"},
     { name: "What's New", path: "/new"}
 ]
 
