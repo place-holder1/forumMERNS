@@ -1,13 +1,12 @@
 import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import Wrapper from '../components/Wrapper';
 import LoginForm from '../components/LoginForm';
+import style from '../styles/login.module.css';
 
 const Register = () => {
     return(
-        <Wrapper>
+        <div className={style["login-page"]}>
             <LoginForm isRegister={true} />
-        </Wrapper>
+        </div>
     );
 }
 

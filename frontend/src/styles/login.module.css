@@ -1,3 +1,14 @@
+.login-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background-color: var(--primary-background-color);
+    margin: 0 auto;
+}
+
+
 .login-form {
     display: flex;
     flex-direction: column;
@@ -8,7 +19,9 @@
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     height: auto;
-    max-width: 50%;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .login-form h2 {

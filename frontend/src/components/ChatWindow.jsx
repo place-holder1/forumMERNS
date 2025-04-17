@@ -7,7 +7,7 @@ const ChatWindow = () => {
     { id: 2, user: "Bob", text: "Hi! Welcome to the forum chat 👋" }
   ]);
   const [input, setInput] = useState("");
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleSend = () => {
     if (!input.trim()) return;
