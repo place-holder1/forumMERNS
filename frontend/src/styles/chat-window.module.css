@@ -39,7 +39,6 @@
   
   .closed {
     animation: slideOut 1.5s ease-in forwards;
-    pointer-events: none;
   }
 
   .chatHeader {

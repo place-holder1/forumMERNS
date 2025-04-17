@@ -18,15 +18,15 @@ const ChatWindow = () => {
   return (
     <div className={`${styles.chatContainer} ${isOpen ? styles.open : styles.closed}`}>
       <div className={styles.chatHeader}
-      onClick={() => setIsOpen(prev => !prev)}>
+        onClick={() => setIsOpen(prev => !prev)}>
         <span className={`${styles.toggleWindow} ${isOpen ? styles.open : styles.closed}`}>Forum Chat</span>
       </div>
 
-      {isOpen && ( 
+      {isOpen && (
         <>
-      
-      </>
-    )}
+
+        </>
+      )}
 
       <div className={styles.chatMessages}>
         {messages.map(msg => (
