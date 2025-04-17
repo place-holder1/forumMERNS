@@ -1,6 +1,7 @@
 import {HashRouter, Route, Routes } from "react-router-dom";
 
 import HomePage from './pages/HomePage';
+import NewPage from './pages/NewPage'
 import ForumPage from './pages/ForumPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
@@ -21,6 +22,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage/>} />
+          <Route path="/new" element={<NewPage/>} />
           <Route path="/create" element={<ForumPage/>} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
