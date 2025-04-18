@@ -20,11 +20,6 @@ const TopicsList = () => {
                 <PostThread/>
                 
             </div>
-            <div className={styles.topicThreadGroup}>
-                {/* div.topicThreadName */}
-                <PostThread/>
-                <PostThread />
-            </div>
             
         </div>
     )

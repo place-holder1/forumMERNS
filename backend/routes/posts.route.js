@@ -1,6 +1,7 @@
 import express from "express";
 
 import { createPost, deletePost, getPost, updatePost } from "../controllers/posts.controller.js";
+import User from "../models/users.model.js";
 
 const router = express.Router();
 

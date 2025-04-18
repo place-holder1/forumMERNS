@@ -1,4 +1,4 @@
-import styles from "../../styles/forum-thread.module.css"
+import styles from "./forum-thread.module.css"
 import {useState, useEffect} from "react"
 
 const ForumThread = () => {
@@ -66,7 +66,7 @@ const ForumThread = () => {
                         alt={topicThread.topic} 
                         className={styles.topic_image} />
                         </span>
-                        <div className="recent_post_row_block">
+                        <div className={styles.recent_post_row_block}>
                             <div className={styles.recent_post_row}>
                                 <a href="#">This is a test</a>
                             </div>

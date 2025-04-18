@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import Wrapper from '../components/Wrapper';
-import LoginForm from '../components/LoginForm';
+// import Wrapper from '../components/Wrapper';
+import LoginForm from '../components/LoginForm/LoginForm';
 
 const Register = () => {
     return(
-        <Wrapper>
+        <div className="formWrapper">
             <LoginForm isRegister={true} />
-        </Wrapper>
+        </div>
     );
 }
 

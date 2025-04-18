@@ -1,4 +1,4 @@
-import styles from "../../styles/front.module.css"
+import styles from "./main.module.css"
 
 const FrontSide = () => {
 

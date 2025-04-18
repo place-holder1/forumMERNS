@@ -1,6 +1,6 @@
 // import {}
 import { Link } from 'react-router-dom'
-import MainComponent from '../components/MainComponent'
+import MainComponent from '../components/FrontPageContent/MainComponent'
 
 const HomePage = () => {
   return (

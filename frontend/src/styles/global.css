@@ -260,3 +260,9 @@ body {
     color: #888;
   }
   
+  .formWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }

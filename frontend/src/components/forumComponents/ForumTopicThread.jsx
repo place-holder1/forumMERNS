@@ -1,4 +1,4 @@
-import styles from "../../styles/page-thread.module.css"
+import styles from "./page-thread.module.css"
 import {useState, useEffect} from "react"
 
 const ForumTopicThread = () => {

@@ -1,8 +1,5 @@
 .everything {
-    /* height: 9000px; */
-    display: table;
-    table-layout: fixed;
-    width: 100%;
+  
 }
 
 .mainContainer {
@@ -30,6 +27,7 @@
   }
   
   .tab {
+    background-color: antiquewhite;
     padding: 0.5rem 1rem;
     text-decoration: none;
     color: #444;
@@ -46,10 +44,23 @@
   }
 
   .tabWrapper {
+    /* Me no like right now */
     width: 100%;
-    max-width: 1600px;
+    /* max-width: 1600px; */
     margin: 0 auto;
     padding: 1rem 0;
-    display: flex;
-    justify-content: flex-start;
+    display: inline-flex;
+    justify-content: center;
   }
+
+  .frontMain {
+    width: 65%;
+    /* height: 500px; */
+    background-color: aqua;
+}
+
+.frontSide {
+    width: 20%;
+    height: 500px;
+    background-color: aqua;
+}

@@ -5,9 +5,9 @@ import NewPage from './pages/NewPage'
 import ForumPage from './pages/ForumPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-import Navbar from './components/Navbar';
-import ChatWindow from "./components/ChatWindow";
-import Footer from "./components/Footer";
+import Navbar from './components/Navbar/Navbar';
+import ChatWindow from "./components/ChatWindow/ChatWindow";
+import Footer from "./components/Footer/Footer";
 import './styles/global.css'
 import './App.css'
 
@@ -27,8 +27,9 @@ function App() {
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
         </Routes>
+        <ChatWindow/>
       </main>
-      <ChatWindow/>
+      
       <footer>
         <Footer/>
       </footer>
