@@ -33,7 +33,7 @@
 
 .topic_container {
     /* background-color: var(--color-2); */
-    background-color: #76818d;
+    background-color: #137ced;
     height: 100px;
     /* padding-top: 15px; */
     border: 2px black;
@@ -63,6 +63,14 @@
 .topic_text_container {
     flex-grow: 1;
     padding: 1rem;
+}
+
+.topic_Name {
+    font-size: 1.25rem;
+}
+
+.topic_Content {
+    font-size: .75rem;
 }
 
 h2 .topic_header {
@@ -131,7 +139,7 @@ dd {
     min-width: 10rem;
     padding: 1rem;
     display: inline-flex;
-    align-items: center;
+    /* align-items: center; */
     /* font-size: .5rem; */
 }
 
@@ -154,6 +162,7 @@ dd {
     flex-direction: column;
     /* font-size: .5rem; */
     /* width: 100%; */
+    align-items: end;
 }
 
 .recent_post_row {

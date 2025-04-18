@@ -31,7 +31,7 @@
     font-size: 1rem;
 }
 
-.topic_container {
+.thread_container {
     /* background-color: var(--color-2); */
     background-color: #76818d;
     height: 100px;
@@ -46,11 +46,11 @@
 
 }
 
-.topic_container:nth-of-type(even){
+.thread_container:nth-of-type(even){
     background-color: red;
 }
 
-.topic_container:last-child {
+.thread_container:last-child {
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
     margin-bottom: 45px;
@@ -61,6 +61,7 @@
 }
 
 .topic_text_container {
+    font-size: 1.5rem;
     flex-grow: 1;
     padding: 1rem;
 }

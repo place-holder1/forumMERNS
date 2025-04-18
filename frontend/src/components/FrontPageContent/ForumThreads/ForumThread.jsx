@@ -21,7 +21,7 @@ const ForumThread = () => {
                 {categoryThread.topic}
                 <span className={styles.desc}>{categoryThread.description}</span>
             </h2>
-            <div className={styles.topic_container}>
+            <div className={styles.thread_container}>
                 <span className={styles.topic_image}>
                     <img src={topicThread.image} 
                     alt={topicThread.topic} 
@@ -39,7 +39,7 @@ const ForumThread = () => {
                     
                 </div>
             </div>
-            <div className={styles.topic_container}>
+            <div className={styles.thread_container}>
                 <span className={styles.topic_image}>
                     <img src={topicThread.image} 
                     alt={topicThread.topic} 
@@ -76,7 +76,7 @@ const ForumThread = () => {
                         </div>
                     </div>
             </div>
-            <div className={styles.topic_container}>
+            <div className={styles.thread_container}>
              <span className={styles.topic_image}>
                     <img src={topicThread.image} 
                     alt={topicThread.topic} 
