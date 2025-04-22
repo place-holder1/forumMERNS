@@ -34,6 +34,21 @@ app.post("/api/users", async (req, res) => {
     res.send("Server is ready123");
 });
 
+app.delete("/api/users/:id", async (req, res) => {
+    const {id} = req.params;
+
+    console.log("ID:", id);
+
+    try{
+        await User.findByIdAndDelete(id);
+        res.status(200).json({ success: true, message: "User deleted" });
+    } catch (error) {
+        console.error("Error in Delete user:", error.message);
+        res.status(500).json({ success: false, message: "Server Error"});
+    }
+
+});
+
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "/frontend/dist")));
 	app.get("*", (req, res) => {
