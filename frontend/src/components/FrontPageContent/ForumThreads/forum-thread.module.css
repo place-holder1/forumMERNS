@@ -33,7 +33,7 @@
 
 .thread_container {
     /* background-color: var(--color-2); */
-    background-color: #76818d;
+    background-color: var(--secondary-background-color);
     height: 100px;
     /* padding-top: 15px; */
     border: 2px black;
@@ -47,7 +47,7 @@
 }
 
 .thread_container:nth-of-type(even){
-    background-color: red;
+    background-color: pink;
 }
 
 .thread_container:last-child {
@@ -67,7 +67,7 @@
 }
 
 h2 .topic_header {
-    background-color: antiquewhite;
+    background-color: rgb(79, 59, 32);
 }
 
 .topic_content {

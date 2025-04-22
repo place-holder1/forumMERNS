@@ -1,13 +1,15 @@
 import styles from "./page-thread.module.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const PostThread = () => {
   const [categoryThread] = useState({
-    topic: "Welcome!",
-    description: "hi",
+    topic: "Latest Gossip",
+    description: "mmm spicy!",
   });
 
   const [topicThread] = useState({
+    topicID: "99999",
     image:
       "https://forums.stardewvalley.net/data/resource_icons/0/155.jpg?1742748854",
     topic: "No",
@@ -21,22 +23,25 @@ const TopicCard = ({ topic }) => {
   return (
     <div className={styles.topic_container}>
       <span className={styles.topic_image}>
-        <img
-          src={topic.image}
-          alt={topic.topic}
-          className={styles.topic_image}
-        />
+        <Link to={`/profile/${topic.user}`}>
+          <img
+            src={topic.image}
+            alt={topic.topic}
+            className={styles.topic_image}
+          />
+        </Link>
       </span>
       <div className={styles.topic_text_container}>
         <div className={styles.topic_Name}>
-          {topic.topic}
+        <Link to={`/posts/${topic.topicID}`}>{topic.user}</Link>
         </div>
         <div className={styles.topic_Content}>
           {/* <div className="topic_User">{topic.user}</div> */}
-          <span><a href={topic.user}>{topic.user}</a></span>
+          <span><Link to={`/profile/${topic.user}`}>{topic.user}</Link></span>
           {topic.spacing}
           {/* <div className="topic_Date">{topic.date}</div> */}
-          <span><a href={topic.date}>{topic.date}</a></span>
+          <span><Link to={`/posts/${topic.topicId}`}>{topic.date}</Link></span>
+          {/* <span><a href={`/posts/${topic.postId}`}>{topic.date}</a></span> */}
           
         </div>
       </div>
@@ -54,25 +59,27 @@ const TopicCard = ({ topic }) => {
         </div>
       )}
 
-      {topic.showRecentPost && (
-        <div className={styles.topic_recent_post}>
-          <div className={styles.recent_post_row_block}>
-            <div className={styles.recent_post_row}>
-              <a href="#">This is a test</a>
+        {topic.showRecentPost && (
+          <div className={styles.topic_recent_post}>
+            <div className={styles.recent_post_row_block}>
+              <div className={styles.recent_post_row}>
+                <Link to={`/posts/${topic.topicId}`}>This is a test</Link>
+              </div>
+              <div className={styles.recent_post_row}>
+                <p>Cool!</p>
+              </div>
             </div>
-            <div className={styles.recent_post_row}>
-              <p>Cool!</p>
-            </div>
+            <Link to={`/profile/${topic.user}`}>
+              <span className={styles.topic_post_icon}>
+                <img
+                  src={topic.image}
+                  alt={topic.topic}
+                  className={styles.topic_image}
+                />
+              </span>
+            </Link>
           </div>
-          <span className={styles.topic_post_icon}>
-            <img
-              src={topic.image}
-              alt={topic.topic}
-              className={styles.topic_image}
-            />
-          </span>
-        </div>
-      )}
+        )}
     </div>
   );
 };

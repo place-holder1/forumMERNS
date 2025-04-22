@@ -3,9 +3,11 @@ import styles from "./main.module.css"
 const FrontSide = () => {
 
     return (
-        <div className={styles.frontSide}>
-        hi
-        </div>
+        <aside className={styles.frontSide}>
+            <div className={styles.sideContainer}>
+                <h1>Hello</h1>
+            </div>
+        </aside>
     )
 }
 

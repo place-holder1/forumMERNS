@@ -1,5 +1,20 @@
+/* --primary-background-color: #050505;
+--secondary-background-color: #3F13A4;
+--light-background-color: #FAFAFA;
+--text-color: #FAFAFA;
+--light-text-color: #3F13A4;
+--button-background-color: #6B35E8;
+--button-text-color: #FAFAFA;
+--button-hover-background-color: var(--secondary-background-color);
+--button-hover-text-color: #595959;
+--button-border-color: #ccc;
+--link-color: #6B35E8;
+--link-hover-color: var(--text-color); */
+
 .everything {
-  
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
 }
 
 .mainContainer {
@@ -13,11 +28,11 @@
 }
 
 .mainContent {
-    min-width: 1600px;
-    max-width: 1600px;
-    display: flex;
-    /* align-items: center; */
-    justify-content: space-evenly;
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .tab_links {
@@ -27,10 +42,10 @@
   }
   
   .tab {
-    background-color: antiquewhite;
+    background-color: var(--button-background-color);
     padding: 0.5rem 1rem;
     text-decoration: none;
-    color: #444;
+    color: var(--text-color);
     font-weight: 500;
   }
   
@@ -56,11 +71,14 @@
   .frontMain {
     width: 70%;
     /* height: 500px; */
-    background-color: aqua;
+    background-color: var(--primary-background-color);
 }
 
 .frontSide {
     width: 20%;
     height: 500px;
-    background-color: aqua;
+    background-color: var(--secondary-background-color);
+    display: flex;
+    padding-left: 1rem;
 }
+

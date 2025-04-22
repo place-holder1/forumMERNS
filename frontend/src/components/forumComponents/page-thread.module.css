@@ -9,14 +9,14 @@
 .category_header {
 
     /* background: repeat scroll 0 0 var(--color-1) !important; */
-    background-color: #F4A31C;
+    background-color: var(--secondary-background-color);
     /* height: 50px; */
     border-color: red !important;
     /* box-shadow: 0 1px 0 #F4A31C inset !important; */
     text-align: left;
     
-    margin: 0;
-    padding: .5rem;
+    margin: 0 auto;
+    padding: 1rem .5rem;
     color: white;
     display: block;
 }
@@ -33,7 +33,7 @@
 
 .topic_container {
     /* background-color: var(--color-2); */
-    background-color: #137ced;
+    background-color: var(--secondary-background-color);
     height: 100px;
     /* padding-top: 15px; */
     border: 2px black;
@@ -47,7 +47,7 @@
 }
 
 .topic_container:nth-of-type(even){
-    background-color: red;
+    background-color: pink;
 }
 
 .topic_container:last-child {
@@ -116,7 +116,7 @@ h2 .topic_header {
 .pairs>dt {
     padding: 0;
     margin: 0;
-    color: #8a8a8a;
+    color: var(--text-color);
 }
 
 dd {

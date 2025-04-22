@@ -7,7 +7,7 @@ import TabLinks from "../TabLinks/TabLinks";
 const MainComponent = () => {
     
     return(
-        <div className={styles.everything}>
+        <div className={"Main"}>
             <TabLinks/>
             <div className={styles.mainContainer}>
                 <div className={styles.mainContent}>
