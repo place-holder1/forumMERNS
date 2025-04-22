@@ -22,7 +22,10 @@ const userSchema = new mongoose.Schema({
     required: [true, "can't be blank"],
   },
   bio: String,
-  avatarUrl: String,
+  avatarUrl: {
+    type: String,
+    default: "https://images-ext-1.discordapp.net/external/jiW5Zq7KJs8iEBlsClaPvggLaUkKuSCLrT0KLIGGPQE/https/forums.stardewvalley.net/styles/classic/default_avi.jpg?format=webp&width=313&height=313"
+  },
 }, {
   timestamps: true // createdAt, updatedAt
 });

@@ -17,10 +17,7 @@ export const createUser = async (req, res) => {
     if (!user.username || !user.email || !user.password) {
         return res.status(400).json({ success: false, message: "Please provide all fields" });
     }
-    //add placeholder image
-    if (!user.avatarUrl) {
-        user.avatarUrl = "https://images-ext-1.discordapp.net/external/jiW5Zq7KJs8iEBlsClaPvggLaUkKuSCLrT0KLIGGPQE/https/forums.stardewvalley.net/styles/classic/default_avi.jpg?format=webp&width=313&height=313"; // Replace with your placeholder image URL
-    }
+
     const newUser = new User(user);
 
     try {

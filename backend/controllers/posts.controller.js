@@ -17,8 +17,8 @@ export const getPost = async (req, res) => {
 export const createPost = async (req, res) => {
     const post = req.body; // post will send this data
 
-    if (!post.postname || !post.email || !post.password) {
-        return res.status(400).json({ success: false, message: "Please provide all fields" });
+    if(!post.title || !post.post || !post.character) {
+        return res.status(400).json({ success: false, message: "Invalid!"});
     }
 
     const newPost = new post(post);
@@ -27,8 +27,8 @@ export const createPost = async (req, res) => {
         await newPost.save();
         res.status(201).json({ success: true, data: newPost });
     } catch (error) {
-        console.error("Error in creating post:", error.message);
-        res.status(500).json({ success: false, message: "Server Error" });
+        console.error("Error in Create post:", error.message);
+        res.status(500).json({ success:false, message: "Server Error"});
     }
 };
 

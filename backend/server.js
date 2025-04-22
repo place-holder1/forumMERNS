@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import path from "path";
 import User from "./models/users.model.js";
+import Post from "./models/posts.model.js";
 
 import { connectDB } from "./config/db.js";
 
@@ -13,6 +14,24 @@ app.use(express.json());
 const PORT = process.env.PORT || 5000;
 
 const __dirname = path.resolve();
+
+app.post("/api/posts", async (req, res) => {
+    const post = req.body;
+
+    if(!post.title || !post.post || !post.character) {
+        return res.status(400).json({ success: false, message: "Invalid!"});
+    }
+
+    const newPost = new Post(post);
+
+    try {
+        await newPost.save();
+        res.status(201).json({ success: true, data: newPost });
+    } catch (error) {
+        console.error("Error in Create post:", error.message);
+        res.status(500).json({ success:false, message: "Server Error"});
+    }
+});
 
 app.post("/api/users", async (req, res) => {
     const user = req.body;
@@ -31,7 +50,6 @@ app.post("/api/users", async (req, res) => {
         res.status(500).json({ success:false, message: "Server Error"});
     }
 
-    res.send("Server is ready123");
 });
 
 app.delete("/api/users/:id", async (req, res) => {

@@ -3,24 +3,57 @@ import mongoose from 'mongoose';
 // This does not exist, so do not care about this
 
 const postSchema = new mongoose.Schema({
-  postID: {
+  title: {
     type: String,
-    lowercase: true,
     unique: true,
     required: [true, "can't be blank"],
-    match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
     index: true,
   },
   post: {
     type: String,
     required: [true, "can't be blank"],
   },
+  createdby: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  character: {
+    type: String,
+    required: true,
+  },
+  tags: {
+    type: [String],
+    default: [],
+  },
+  likes: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: 'User',
+    default: [],
+  },
+  comments: [
+    {
+      user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+      },
+      comment: {
+        type: String,
+        required: true,
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+      },
+    },
+  ],
 }, {
   timestamps: true // createdAt, updatedAt
 });
 
-// userSchema.plugin(uniqueValidator);
+// postSchema.plugin(uniqueValidator);
 const Post = mongoose.model('Post', postSchema);
-//users
+//posts
 
 export default Post;
