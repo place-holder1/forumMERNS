@@ -27,11 +27,13 @@ function App() {
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
         </Routes>
-      </main>
-      <ChatWindow/>
+      
       <footer>
         <Footer/>
       </footer>
+      <ChatWindow/>
+      </main>
+      
     </HashRouter>
 
 
