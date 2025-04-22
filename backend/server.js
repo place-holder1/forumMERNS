@@ -15,6 +15,17 @@ const PORT = process.env.PORT || 5000;
 
 const __dirname = path.resolve();
 
+app.get("/api/posts", async (req, res) => {
+    try {
+        const posts = await Post.find({});
+        res.status(200).json({ success: true, data: posts });
+    } catch (error) {
+        console.log("Error in Get posts:", error.message); 
+        res.status(500).json({ success: false, message: "Server Error"});
+    }
+});
+
+
 app.post("/api/posts", async (req, res) => {
     const post = req.body;
 
@@ -31,6 +42,21 @@ app.post("/api/posts", async (req, res) => {
         console.error("Error in Create post:", error.message);
         res.status(500).json({ success:false, message: "Server Error"});
     }
+});
+
+app.delete("/api/posts/:id", async (req, res) => {
+    const {id} = req.params;
+
+    console.log("ID:", id);
+
+    try{
+        await Post.findByIdAndDelete(id);
+        res.status(200).json({ success: true, message: "Post deleted" });
+    } catch (error) {
+        console.error("Error in Delete post:", error.message);
+        res.status(500).json({ success: false, message: "Server Error"});
+    }
+
 });
 
 app.post("/api/users", async (req, res) => {
