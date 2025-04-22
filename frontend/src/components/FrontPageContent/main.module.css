@@ -1,0 +1,84 @@
+/* --primary-background-color: #050505;
+--secondary-background-color: #3F13A4;
+--light-background-color: #FAFAFA;
+--text-color: #FAFAFA;
+--light-text-color: #3F13A4;
+--button-background-color: #6B35E8;
+--button-text-color: #FAFAFA;
+--button-hover-background-color: var(--secondary-background-color);
+--button-hover-text-color: #595959;
+--button-border-color: #ccc;
+--link-color: #6B35E8;
+--link-hover-color: var(--text-color); */
+
+.everything {
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+.mainContainer {
+    width: 100%;
+    min-height: 1100px;
+    display: inline-flex;
+    justify-content: center;
+    margin: 0 auto;
+    /* align-items: center; */
+    /* background-color: azure; */
+}
+
+.mainContent {
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.tab_links {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  .tab {
+    background-color: var(--button-background-color);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+  }
+  
+  .tab:hover {
+    color: #000;
+  }
+  
+  .active {
+    border-bottom: 2px solid blue;
+    color: blue;
+  }
+
+  .tabWrapper {
+    /* Me no like right now */
+    width: 100%;
+    /* max-width: 1600px; */
+    margin: 0 auto;
+    padding: 1rem 0;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .frontMain {
+    width: 70%;
+    /* height: 500px; */
+    background-color: var(--primary-background-color);
+}
+
+.frontSide {
+    width: 20%;
+    height: 500px;
+    background-color: var(--secondary-background-color);
+    display: flex;
+    padding-left: 1rem;
+}
+

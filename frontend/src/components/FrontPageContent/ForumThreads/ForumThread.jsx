@@ -1,4 +1,4 @@
-import styles from "../../styles/forum-thread.module.css"
+import styles from "./forum-thread.module.css"
 import {useState, useEffect} from "react"
 
 const ForumThread = () => {
@@ -21,7 +21,7 @@ const ForumThread = () => {
                 {categoryThread.topic}
                 <span className={styles.desc}>{categoryThread.description}</span>
             </h2>
-            <div className={styles.topic_container}>
+            <div className={styles.thread_container}>
                 <span className={styles.topic_image}>
                     <img src={topicThread.image} 
                     alt={topicThread.topic} 
@@ -39,7 +39,7 @@ const ForumThread = () => {
                     
                 </div>
             </div>
-            <div className={styles.topic_container}>
+            <div className={styles.thread_container}>
                 <span className={styles.topic_image}>
                     <img src={topicThread.image} 
                     alt={topicThread.topic} 
@@ -66,7 +66,7 @@ const ForumThread = () => {
                         alt={topicThread.topic} 
                         className={styles.topic_image} />
                         </span>
-                        <div className="recent_post_row_block">
+                        <div className={styles.recent_post_row_block}>
                             <div className={styles.recent_post_row}>
                                 <a href="#">This is a test</a>
                             </div>
@@ -76,7 +76,7 @@ const ForumThread = () => {
                         </div>
                     </div>
             </div>
-            <div className={styles.topic_container}>
+            <div className={styles.thread_container}>
              <span className={styles.topic_image}>
                     <img src={topicThread.image} 
                     alt={topicThread.topic} 

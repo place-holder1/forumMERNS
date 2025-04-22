@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 import post from "../models/posts.model.js";
 
+// Try reading from this section maybe?
+// https://github.com/safak/youtube/blob/chat-app/api/routes/posts.js
+
 export const getPost = async (req, res) => {
     try {
         const posts = await post.find({});

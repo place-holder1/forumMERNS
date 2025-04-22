@@ -7,6 +7,7 @@ const Register = () => {
         <div className={style["login-page"]}>
             <LoginForm isRegister={true} />
         </div>
+
     );
 }
 

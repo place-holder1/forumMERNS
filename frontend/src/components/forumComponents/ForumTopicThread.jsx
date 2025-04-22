@@ -1,17 +1,19 @@
-import styles from "../../styles/forum-thread.module.css"
+import styles from "./page-thread.module.css"
 import {useState, useEffect} from "react"
+
+// This one is deprecated for now
 
 const ForumTopicThread = () => {
  
     const [categoryThread, setCategoryThread] = useState({
-        topic: "Welcome!",
+        topic: "Test!",
         description: "hi"
     });
 
     const [topicThread, setTopicThread] = useState({
         image: "https://forums.stardewvalley.net/data/resource_icons/0/155.jpg?1742748854",
         // So apparently trying to link the assets we have don't work as intended. They all become blank.
-        topic: "Yes",
+        topic: "YES",
         description: "Hi!"
     });
 
@@ -28,8 +30,9 @@ const ForumTopicThread = () => {
                     className={styles.topic_image} />
                 </span>
                 <div className={styles.topic_text_container}>
-                    {topicThread.topic}
+                    <a href="#">{topicThread.topic}</a>
                     {/* <span className={styles.desc}>{topicThread.description}</span> */}
+                    
 
                 </div>
                 <div className={styles.topic_stats}>

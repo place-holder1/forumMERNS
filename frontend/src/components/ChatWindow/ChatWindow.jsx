@@ -1,4 +1,4 @@
-import styles from "../styles/chat-window.module.css";
+import styles from "./chat-window.module.css";
 import { useState } from "react";
 
 const ChatWindow = () => {

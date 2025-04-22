@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import styles from "../../styles/main.module.css"
+import styles from "../FrontPageContent/main.module.css"
 
 const forumTabs = [
     { name: "Home", path: "/"},
@@ -9,7 +9,8 @@ const forumTabs = [
 const TabLinks = () => {
 
     return (
-        <div className={styles.TabWrapper}>
+        // Right now it is justified to center. I don't like it at the moment, but it may be kept that way.
+        <div className={styles.tabWrapper}>
             {forumTabs.map((tab, index) => (
                 <NavLink
                     key={index}

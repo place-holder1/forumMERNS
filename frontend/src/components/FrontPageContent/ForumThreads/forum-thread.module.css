@@ -1,0 +1,173 @@
+/* Imported from Elijah's PHP forum. Must be cleaned up for React. */
+
+/* Dashes will have to be underscores instead because of React */
+
+.category_container {
+
+}
+
+.category_header {
+
+    /* background: repeat scroll 0 0 var(--color-1) !important; */
+    background-color: #F4A31C;
+    /* height: 50px; */
+    border-color: red !important;
+    /* box-shadow: 0 1px 0 #F4A31C inset !important; */
+    text-align: left;
+    
+    margin: 0;
+    padding: .5rem;
+    color: white;
+    display: block;
+}
+
+.category_header::before {
+    content: " ";
+    display: table;
+}
+
+.desc {
+    display: block;
+    font-size: 1rem;
+}
+
+.thread_container {
+    /* background-color: var(--color-2); */
+    background-color: var(--secondary-background-color);
+    height: 100px;
+    /* padding-top: 15px; */
+    border: 2px black;
+    border-top: 5px solid var(--color-4);
+    
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+
+}
+
+.thread_container:nth-of-type(even){
+    background-color: pink;
+}
+
+.thread_container:last-child {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    margin-bottom: 45px;
+}
+
+.topic_image {
+    width: 3rem;
+}
+
+.topic_text_container {
+    font-size: 1.5rem;
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+h2 .topic_header {
+    background-color: rgb(79, 59, 32);
+}
+
+.topic_content {
+    background-color: aquamarine;
+}
+
+.topic_stats {
+    display: inline-flex;
+    align-items: center;
+    /* width: 140px;
+    min-width: 140px; */
+    vertical-align: middle;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.pairs {
+    overflow: hidden;
+}
+
+.pairs_stats {
+    display: inline-table;
+    text-align: center;
+}
+
+.topic_stats>dl.pairs.pairs_stats {
+    width: 50%;
+    float: left;
+    margin: 0;
+    padding: 0 .5rem;
+    /* border-right: 1px solid #e0e0e0; */
+}
+
+.pairs.pairs_stats>dt {
+    display: table-row;
+    font-size: 1rem;
+}
+
+.pairs>dt {
+    padding: 0;
+    margin: 0;
+    color: #8a8a8a;
+}
+
+dd {
+    margin-inline-start: 40px;
+}
+
+.pairs.pairs_stats>dd {
+    display: table-row;
+}
+
+.pairs>dd {
+    padding: 0;
+    margin: 0;
+}
+
+.topic_recent_post {
+    vertical-align: middle;
+    /* width: 280px; */
+    /* min-width: 230px; */
+    min-width: 10rem;
+    padding: 1rem;
+    display: inline-flex;
+    align-items: center;
+    /* font-size: .5rem; */
+}
+
+.topic_post_icon {
+    width: 3rem;
+    height: 3rem;
+    padding-right: 1rem;
+    float: left;
+}
+
+/* .recent-post-row-block {
+
+} */
+
+.recent_post_row_block {
+    display: flex;
+    flex-wrap: wrap;
+    /* min-width: 0; */
+    /* max-width: 100%; */
+    flex-direction: column;
+    /* font-size: .5rem; */
+    /* width: 100%; */
+}
+
+.recent_post_row {
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    color: #76818d;
+    /* font-size: .75rem; */
+    /* max-width: 100%; */
+}
+
+.recent_post_row p, .recent_post_row a {
+    font-size: 1rem;
+    margin: 0 auto;
+}

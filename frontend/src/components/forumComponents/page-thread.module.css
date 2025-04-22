@@ -2,21 +2,21 @@
 
 /* Dashes will have to be underscores instead because of React */
 
-.category_container {
-
+.topic_container {
+    
 }
 
 .category_header {
 
     /* background: repeat scroll 0 0 var(--color-1) !important; */
-    background-color: #F4A31C;
+    background-color: var(--secondary-background-color);
     /* height: 50px; */
     border-color: red !important;
     /* box-shadow: 0 1px 0 #F4A31C inset !important; */
     text-align: left;
     
-    margin: 0;
-    padding: .5rem;
+    margin: 0 auto;
+    padding: 1rem .5rem;
     color: white;
     display: block;
 }
@@ -33,7 +33,7 @@
 
 .topic_container {
     /* background-color: var(--color-2); */
-    background-color: #76818d;
+    background-color: var(--secondary-background-color);
     height: 100px;
     /* padding-top: 15px; */
     border: 2px black;
@@ -47,13 +47,13 @@
 }
 
 .topic_container:nth-of-type(even){
-    background-color: red;
+    background-color: pink;
 }
 
 .topic_container:last-child {
-    border-bottom-left-radius: 7px;
+    /* border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
-    margin-bottom: 45px;
+    margin-bottom: 45px; */
 }
 
 .topic_image {
@@ -63,6 +63,14 @@
 .topic_text_container {
     flex-grow: 1;
     padding: 1rem;
+}
+
+.topic_Name {
+    font-size: 1.25rem;
+}
+
+.topic_Content {
+    font-size: .75rem;
 }
 
 h2 .topic_header {
@@ -108,7 +116,7 @@ h2 .topic_header {
 .pairs>dt {
     padding: 0;
     margin: 0;
-    color: #8a8a8a;
+    color: var(--text-color);
 }
 
 dd {
@@ -131,7 +139,7 @@ dd {
     min-width: 10rem;
     padding: 1rem;
     display: inline-flex;
-    align-items: center;
+    /* align-items: center; */
     /* font-size: .5rem; */
 }
 
@@ -154,6 +162,7 @@ dd {
     flex-direction: column;
     /* font-size: .5rem; */
     /* width: 100%; */
+    align-items: end;
 }
 
 .recent_post_row {

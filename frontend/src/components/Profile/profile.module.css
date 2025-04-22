@@ -1,0 +1,46 @@
+.profileContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .profileHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .profileAvatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .profileUsername {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .profileBio {
+    font-size: 1rem;
+    color: gray;
+  }
+  
+  .profileJoinDate {
+    font-size: 0.9rem;
+    color: darkgray;
+  }
+  
+  .profilePosts {
+    margin-top: 2rem;
+  }
+  
+  .profilePostLink {
+    text-decoration: none;
+    color: dodgerblue;
+  }
+  
+  .profilePostLink:hover {
+    text-decoration: underline;
+  }
+  

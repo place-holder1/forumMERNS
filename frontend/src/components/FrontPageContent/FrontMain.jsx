@@ -1,6 +1,6 @@
-import styles from "../../styles/front.module.css"
+import styles from "./main.module.css"
 import { useState, useEffect } from "react";
-import ForumThread from "./ForumThread";
+import ForumThread from "./ForumThreads/ForumThread";
 
 const FrontMain = () => {
 

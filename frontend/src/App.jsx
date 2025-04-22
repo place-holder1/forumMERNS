@@ -5,9 +5,11 @@ import NewPage from './pages/NewPage'
 import ForumPage from './pages/ForumPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-import Navbar from './components/Navbar';
-import ChatWindow from "./components/ChatWindow";
-import Footer from "./components/Footer";
+import Navbar from './components/Navbar/Navbar';
+import ChatWindow from "./components/ChatWindow/ChatWindow";
+import Footer from "./components/Footer/Footer";
+import PostPage from "./pages/PostPage";
+import ProfilePage from "./pages/ProfilePage";
 import './styles/global.css'
 import './App.css'
 
@@ -26,6 +28,8 @@ function App() {
           <Route path="/create" element={<ForumPage/>} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
+          <Route path="/posts/:postId" element={<PostPage />} />
+          <Route path="/profiles/:userID" element={<ProfilePage />} />
         </Routes>
       
       <footer>
