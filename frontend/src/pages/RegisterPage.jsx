@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
-import LoginForm from '../components/LoginForm';
-import style from '../styles/login.module.css';
+import React, { useState } from 'react';
+import LoginForm from '../components/LoginForm/LoginForm';
+import style from '../components/LoginForm/login.module.css';
 
 const Register = () => {
     return(

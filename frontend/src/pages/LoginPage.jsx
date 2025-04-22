@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import LoginForm from '../components/LoginForm';
-import style from '../styles/login.module.css';
+import LoginForm from '../components/LoginForm/LoginForm';
+import style from '../components/LoginForm/login.module.css';
 
 const Login = () => {
     return (
