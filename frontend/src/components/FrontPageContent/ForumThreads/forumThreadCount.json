@@ -1,0 +1,92 @@
+[
+    {
+      "topic": "Welcome! ;)",
+      "description": "Here's the general guidelines to get you started.",
+      "topics": [
+        {
+          "topicId": "cat-1",
+          "topic": "FAQ",
+          "image": "https://forums.stardewvalley.net/data/resource_icons/0/155.jpg?1742748854",
+          "topicCount": 5,
+          "postCount": 14,
+          "showStats": true,
+          "showPost": true
+        },
+        {
+          "topicId": "cat-2",
+          "topic": "News",
+          "image": "https://forums.stardewvalley.net/data/resource_icons/0/155.jpg?1742748854",
+          "topicCount": 8,
+          "postCount": 23,
+          "showStats": true,
+          "showPost": true
+        }
+      ]
+    },
+    {
+      "topic": "General",
+      "description": "Where the gossip fills up the cup of tea.",
+      "topics": [
+        {
+          "topicId": "cat-3",
+          "topic": "Biggest Gossip",
+          "image": "https://forums.stardewvalley.net/data/resource_icons/0/155.jpg?1742748854",
+          "topicCount": 167,
+          "postCount": 849,
+          "showStats": true,
+          "showPost": true
+        },
+        {
+          "topicId": "cat-4",
+          "topic": "Love Central",
+          "image": "https://forums.stardewvalley.net/data/resource_icons/0/155.jpg?1742748854",
+          "topicCount": 31,
+          "postCount": 68,
+          "showStats": true,
+          "showPost": true
+        },
+        {
+          "topicId": "cat-5",
+          "topic": "Casual Meetups",
+          "image": "https://forums.stardewvalley.net/data/resource_icons/0/155.jpg?1742748854",
+          "topicCount": 11,
+          "postCount": 45,
+          "showStats": true,
+          "showPost": true
+        }
+      ]
+    },
+    {
+        "topic": "Off-Topic",
+        "description": "Side fun topics",
+        "topics": [
+          {
+            "topicId": "cat-6",
+            "topic": "Introductions",
+            "image": "https://forums.stardewvalley.net/data/resource_icons/0/155.jpg?1742748854",
+            "topicCount": 167,
+            "postCount": 849,
+            "showStats": true,
+            "showPost": true
+          },
+          {
+            "topicId": "cat-7",
+            "topic": "Discussion",
+            "image": "https://forums.stardewvalley.net/data/resource_icons/0/155.jpg?1742748854",
+            "topicCount": 31,
+            "postCount": 68,
+            "showStats": true,
+            "showPost": true
+          },
+          {
+            "topicId": "cat-8",
+            "topic": "Arts",
+            "image": "https://forums.stardewvalley.net/data/resource_icons/0/155.jpg?1742748854",
+            "topicCount": 11,
+            "postCount": 45,
+            "showStats": true,
+            "showPost": true
+          }
+        ]
+      }
+  ]

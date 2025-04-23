@@ -54,7 +54,7 @@ const TopicCard = ({ topic }) => {
           </dl>
           <dl className={`${styles.pairs} ${styles.pairs_stats}`}>
             <dt>Views</dt>
-            <dd>1</dd>
+            <dd>6</dd>
           </dl>
         </div>
       )}
@@ -84,18 +84,11 @@ const TopicCard = ({ topic }) => {
   );
 };
 
-  const topics = [
-    { ...topicThread, showStats: true, showRecentPost: true },
-    { ...topicThread, showStats: true, showRecentPost: true },
-    { ...topicThread },
-    { ...topicThread },
-    { ...topicThread },
-    { ...topicThread },
-    { ...topicThread },
-    { ...topicThread },
-    { ...topicThread },
-    { ...topicThread },
-  ];
+const topics = [];
+
+for (let i = 0; i < 10; i++) {
+  topics.push({ ...topicThread, showStats: true, showRecentPost: true });
+}
 
   return (
     <div className={styles.category_container}>

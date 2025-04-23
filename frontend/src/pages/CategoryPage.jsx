@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 import PageComponent from '../components/PageComponent'
 
-const NewPage = () => {
+const CategoryPage = () => {
   return (
     <PageComponent>
       <div>HomePageyes</div>
@@ -11,4 +11,4 @@ const NewPage = () => {
   )
 }
 
-export default NewPage
+export default CategoryPage

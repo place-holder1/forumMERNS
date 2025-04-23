@@ -16,11 +16,6 @@ const FrontMain = () => {
                 {/* div.topicThreadName */}
                 <ForumThread/>
             </div>
-            <div className={styles.topicThreadGroup}>
-                {/* div.topicThreadName */}
-                <ForumThread/>
-            </div>
-            
         </div>
     )
 
