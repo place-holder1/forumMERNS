@@ -42,7 +42,7 @@ const Navbar = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.navLogo}>
-                <Link to="/">Forum</Link>
+                <Link to="/">Valley Of Secrets</Link>
             </div>
 
             <div className={styles.navSearch}>

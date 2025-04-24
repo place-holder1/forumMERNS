@@ -5,7 +5,7 @@ import style from '../components/LoginForm/login.module.css';
 
 const Login = () => {
     return (
-        <div className={style["login-page"]}>
+        <div className={style["formWrapper"]}>
             <LoginForm isRegister={false} />
             <p>Don't have an account? <Link to="/register">Register</Link></p>
         </div>

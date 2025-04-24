@@ -4,7 +4,7 @@ import style from '../components/LoginForm/login.module.css';
 
 const Register = () => {
     return(
-        <div className={style["login-page"]}>
+        <div className={style["formWrapper"]}>
             <LoginForm isRegister={true} />
         </div>
 
