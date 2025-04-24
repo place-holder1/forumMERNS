@@ -84,23 +84,37 @@
 
 .sideContainer {
   margin-left: 1.5rem;
-  margin-top: 1rem;
+  margin-top: .5rem;
   margin-right: 1.5rem;
-  margin-bottom: 1rem;
   background-color: var(--secondary-background-color);
 }
 
-ul {
+.sideContainer h1 {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.latest_content ul {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-span {
-  font-weight: lighter;
+  padding-left: 0;
 }
 
 .latest_content li {
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
+}
+
+.latest_content span {
+  font-style: italic;
+  padding-left: .25rem;
+}
+
+.latest_content a.thread {
+  font-weight: bold;
+}
+
+.latest_content a.category {
+  padding-left: .25rem;
 }
