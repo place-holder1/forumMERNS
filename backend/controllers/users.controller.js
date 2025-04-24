@@ -19,12 +19,7 @@ export const checkLogin = async (req, res) => {
     }
 
     try {
-        const user = await User.findOne({
-            where: {
-                password: password,
-                username: username
-            }
-        });
+        const user = await User.findOne({ username, password });
         if (!user) {
             console.log("Invalid credentials:", username, password, user);
             return res.status(401).json({ success: false, message: "Invalid credentials" });
