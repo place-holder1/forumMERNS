@@ -76,9 +76,31 @@
 
 .frontSide {
     width: 20%;
-    height: 500px;
+    height: 30rem;
     background-color: var(--secondary-background-color);
     display: flex;
-    padding-left: 1rem;
+    /* padding-left: 1rem; */
 }
 
+.sideContainer {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+  margin-right: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: var(--secondary-background-color);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+span {
+  font-weight: lighter;
+}
+
+.latest_content li {
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}

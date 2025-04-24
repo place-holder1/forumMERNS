@@ -1,6 +1,8 @@
 .formWrapper {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 50rem;
 }
 
 .login-form {
@@ -15,6 +17,10 @@
     height: auto;
     width: 20%;
     max-width: 50%;
+}
+
+.login-form h1 {
+    margin-bottom: 2rem;
 }
 
 .login-form h2 {

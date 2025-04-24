@@ -32,12 +32,12 @@ function App() {
           <Route path="/profiles/:userID" element={<ProfilePage />} />
         </Routes>
       
+
+      <ChatWindow/>
+      </main>
       <footer>
         <Footer/>
       </footer>
-      <ChatWindow/>
-      </main>
-      
     </HashRouter>
 
 
