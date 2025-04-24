@@ -7,9 +7,6 @@ import { connectDB } from "./config/db.js";
 import postRoutes from "./routes/posts.route.js";
 import userRoutes from "./routes/users.route.js";
 
-app.use("/api/posts", postRoutes);
-app.use("/api/users", userRoutes);
-
 dotenv.config();
 
 const app = express();
@@ -18,6 +15,9 @@ app.use(express.json());
 const PORT = process.env.PORT || 5000;
 
 const __dirname = path.resolve();
+
+app.use("/api/posts", postRoutes);
+app.use("/api/users", userRoutes);
 
 // app.get("/api/posts", async (req, res) => {
 //     try {

@@ -12,24 +12,22 @@ export const getUser = async (req, res) => {
 };
 
 export const checkLogin = async (req, res) => {
-    const { username, email, password } = req.body; // user will send this data
+    const { username, password } = req.body; // user will send this data
 
-    if ((!username && !email) || !password) {
+    if (!username || !password) {
         return res.status(400).json({ success: false, message: "Please provide all fields" });
     }
 
     try {
-        if (username) {
-            const user = await User.findOne({ username, password });
-            if (!user) {
-                return res.status(401).json({ success: false, message: "Invalid credentials" });
+        const user = await User.findOne({
+            where: {
+                password: password,
+                username: username
             }
-        }
-        else {
-            const user = await User.findOne({ email, password });
-            if (!user) {
-                return res.status(401).json({ success: false, message: "Invalid credentials" });
-            }
+        });
+        if (!user) {
+            console.log("Invalid credentials:", username, password, user);
+            return res.status(401).json({ success: false, message: "Invalid credentials" });
         }
         res.status(200).json({ success: true, data: user });
     } catch (error) {

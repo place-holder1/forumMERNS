@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import { createPost, deletePost, getPosts, getUserPosts, updatePost } from "../controllers/posts.controller.js";
-import { post } from "../models/post.model.js";
 
 const router = express.Router();
 

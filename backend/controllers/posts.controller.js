@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import post from "../models/posts.model.js";
+import Post from "../models/posts.model.js";
 
 // Try reading from this section maybe?
 // https://github.com/safak/youtube/blob/chat-app/api/routes/posts.js
@@ -16,13 +17,10 @@ export const getPosts = async (req, res) => {
 
 export const getUserPosts = async (req, res) => {
     const { id } = req.params; // user id
-
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ success: false, message: "Invalid user ID" });
-    }
+    //the id is the user id in createdBy 
 
     try {
-        const posts = await post.find({ character: id });
+        const posts = await post.find({ createdby: id });
         res.status(200).json({ success: true, data: posts });
     } catch (error) {
         console.log("Error in fetching user posts:", error.message);
@@ -37,7 +35,7 @@ export const createPost = async (req, res) => {
         return res.status(400).json({ success: false, message: "Invalid!"});
     }
 
-    const newPost = new post(post);
+    const newPost = new Post(post);
 
     try {
         await newPost.save();
