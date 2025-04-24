@@ -1,4 +1,5 @@
 import styles from "./main.module.css"
+import { Link } from "react-router-dom";
 
 const FrontSide = () => {
     return (
@@ -8,16 +9,26 @@ const FrontSide = () => {
                 <div className={styles.latest_content}>
                     <ul>
                         <li>
-                            <a href="#">Harvey did WHAT?</a>
-                            <span> by Peach • 3h ago</span>
+                            <Link to="/" className={styles.thread}>Harvey did WHAT?</Link>
+                        <span>by <Link to="/">Emily</Link> • 3h ago</span> •
+                            <Link to="/" className={styles.category}>Biggest Gossip</Link>
                         </li>
                         <li>
-                            <a href="#">how do i find a bf</a>
-                            <span> by single • 6h ago</span>
+                            <Link to="/" className={styles.thread}>how do I find a bf</Link>
+                        <span>by <Link to="/">single</Link> • 6h ago</span> •
+                            <Link to="/" className={styles.category}>Love Central</Link>
                         </li>
+
                         <li>
-                            <a href="#">;)</a>
-                            <span> by JunimoSprout • 1d ago</span>
+                            <Link to="/" className={styles.thread}>What are you watching?</Link>
+                        <span>by <Link to="/">JuminoSprout</Link> • 1d ago</span> •
+                            <Link to="/" className={styles.category}>Off-Topic</Link>
+                        </li>
+
+                        <li>
+                            <Link to="/" className={styles.thread}>Fanart ;)</Link>
+                        <span>by tumblrqueen • 2d ago</span> •
+                            <Link to="/" className={styles.category}>Art</Link>
                         </li>
                     </ul>
                 </div>

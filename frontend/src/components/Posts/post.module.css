@@ -5,6 +5,10 @@
     background-color: #a27878;
     min-height: 150rem;
   }
+
+  .topicTitle {
+    padding: 1rem;
+  }
   
   .postWrapper {
     background-color: #532ab2;
