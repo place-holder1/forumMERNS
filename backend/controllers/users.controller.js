@@ -11,6 +11,33 @@ export const getUser = async (req, res) => {
     }
 };
 
+export const checkLogin = async (req, res) => {
+    const { username, email, password } = req.body; // user will send this data
+
+    if ((!username && !email) || !password) {
+        return res.status(400).json({ success: false, message: "Please provide all fields" });
+    }
+
+    try {
+        if (username) {
+            const user = await User.findOne({ username, password });
+            if (!user) {
+                return res.status(401).json({ success: false, message: "Invalid credentials" });
+            }
+        }
+        else {
+            const user = await User.findOne({ email, password });
+            if (!user) {
+                return res.status(401).json({ success: false, message: "Invalid credentials" });
+            }
+        }
+        res.status(200).json({ success: true, data: user });
+    } catch (error) {
+        console.error("Error in login:", error.message);
+        res.status(500).json({ success: false, message: "Server Error" });
+    }
+}
+
 export const createUser = async (req, res) => {
     const user = req.body; // user will send this data
 

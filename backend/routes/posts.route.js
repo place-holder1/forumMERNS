@@ -1,13 +1,14 @@
 import express from "express";
-
-import { createPost, deletePost, getPost, updatePost } from "../controllers/posts.controller.js";
-import User from "../models/users.model.js";
+import mongoose from "mongoose";
+import { createPost, deletePost, getPosts, getUserPosts, updatePost } from "../controllers/posts.controller.js";
+import { post } from "../models/post.model.js";
 
 const router = express.Router();
 
-router.get("/", getPost);
-router.get("/", createPost);
-router.get("/", updatePost);
-router.get("/", deletePost);
+router.get("/", getPosts);
+router.get("/user/:id", getUserPosts);
+router.post("/", createPost);
+router.put("/:id", updatePost);
+router.delete("/:id", deletePost);
 
 export default router;

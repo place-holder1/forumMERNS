@@ -4,7 +4,7 @@ import post from "../models/posts.model.js";
 // Try reading from this section maybe?
 // https://github.com/safak/youtube/blob/chat-app/api/routes/posts.js
 
-export const getPost = async (req, res) => {
+export const getPosts = async (req, res) => {
     try {
         const posts = await post.find({});
         res.status(200).json({ success: true, data: posts });
@@ -13,6 +13,22 @@ export const getPost = async (req, res) => {
         res.status(500).json({ success: false, message: "Server Error" });
     }
 };
+
+export const getUserPosts = async (req, res) => {
+    const { id } = req.params; // user id
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ success: false, message: "Invalid user ID" });
+    }
+
+    try {
+        const posts = await post.find({ character: id });
+        res.status(200).json({ success: true, data: posts });
+    } catch (error) {
+        console.log("Error in fetching user posts:", error.message);
+        res.status(500).json({ success: false, message: "Server Error" });
+    }
+}
 
 export const createPost = async (req, res) => {
     const post = req.body; // post will send this data
