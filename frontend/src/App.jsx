@@ -12,6 +12,7 @@ import PostPage from "./pages/PostPage";
 import ProfilePage from "./pages/ProfilePage";
 import './styles/global.css'
 import './App.css'
+import CategoryPage from "./pages/CategoryPage";
 
 //Trying to aim for https://forums.pcgamer.com/trending/threads.1/ style
 
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/new" element={<NewPage/>} />
+          <Route path="/category/:categoryName" element={<CategoryPage/>} />
           <Route path="/create" element={<ForumPage/>} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />

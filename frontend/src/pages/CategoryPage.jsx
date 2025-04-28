@@ -1,8 +1,10 @@
 // import {}
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import PageComponent from '../components/PageComponent'
 
 const CategoryPage = () => {
+  const { category } = useParams();
+
   return (
     <PageComponent>
       <div>HomePageyes</div>

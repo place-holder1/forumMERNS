@@ -117,7 +117,7 @@ h2 .topic_header {
 .pairs>dt {
     padding: 0;
     margin: 0;
-    color: var(--text-color);
+    color: #8a8a8a;
 }
 
 dd {

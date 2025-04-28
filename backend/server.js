@@ -6,6 +6,8 @@ import { connectDB } from "./config/db.js";
 
 import postRoutes from "./routes/posts.route.js";
 import userRoutes from "./routes/users.route.js";
+import categoriesRoutes from "./routes/categories.route.js"
+import messageRoutes from "./routes/messages.route.js"
 
 dotenv.config();
 
@@ -18,6 +20,8 @@ const __dirname = path.resolve();
 
 app.use("/api/posts", postRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/categories", categoriesRoutes);
+app.use("/api/messages", messageRoutes);
 
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "/frontend/dist")));

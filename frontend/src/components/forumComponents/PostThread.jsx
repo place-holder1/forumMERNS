@@ -1,6 +1,6 @@
 import styles from "./page-thread.module.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const PostThread = () => {
   const [categoryThread] = useState({
@@ -8,16 +8,20 @@ const PostThread = () => {
     description: "mmm spicy!",
   });
 
+  
+
   const [topicThread] = useState({
     topicID: "99999",
     image:
-      "https://forums.stardewvalley.net/data/resource_icons/0/155.jpg?1742748854",
+      "https://forums.stardewvalley.net/styles/classic/default_avi.jpg",
     topic: "No",
     user: "jester",
     description: "Hi!",
     date: "Dec 31, 1999",
     spacing: " - "
   });
+
+  
 
 const TopicCard = ({ topic }) => {
   return (
