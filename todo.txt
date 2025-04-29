@@ -1,0 +1,17 @@
+needs:
+D:
+- get filtered posts
+- Login functionality
+- log out functionality
+- css
+
+E:
+- profile page
+- new post page/functionality
+- post functionality
+- topic functionality
+
+wants:
+- path
+- chat
+
