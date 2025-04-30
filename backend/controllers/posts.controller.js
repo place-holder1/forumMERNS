@@ -28,6 +28,37 @@ export const getUserPosts = async (req, res) => {
     }
 }
 
+export const getTagPosts = async (req, res) => {
+    const { tag } = req.params; // tag name
+
+    try {
+        const posts = await post.find({ tags: tag });
+        res.status(200).json({ success: true, data: posts });
+    } catch (error) {
+        console.log("Error in fetching tag posts:", error.message);
+        res.status(500).json({ success: false, message: "Server Error" });
+    }
+}
+
+export const getPost = async (req, res) => {
+    const { id } = req.params; // post id
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({ success: false, message: "Invalid post ID" });
+    }
+
+    try {
+        const post = await Post.findById(id);
+        if (!post) {
+            return res.status(404).json({ success: false, message: "Post not found" });
+        }
+        res.status(200).json({ success: true, data: post });
+    } catch (error) {
+        console.log("Error in fetching post:", error.message);
+        res.status(500).json({ success: false, message: "Server Error" });
+    }
+};
+
 export const createPost = async (req, res) => {
     const post = req.body; // post will send this data
 

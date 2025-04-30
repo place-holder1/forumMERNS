@@ -1,6 +1,5 @@
 needs:
 D:
-- get filtered posts
 - Login functionality
 - log out functionality
 - css
