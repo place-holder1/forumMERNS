@@ -63,6 +63,7 @@ const Posts = () => {
 
   return (
     <div className={styles.everything}>
+      <h1 className={styles.topicTitle}>What's up?</h1>
       {posts.map((post) => (
         <Post key={post.id} user={post.user} content={post.content} date={post.date} />
       ))}

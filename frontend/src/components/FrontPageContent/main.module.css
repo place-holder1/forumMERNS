@@ -18,13 +18,11 @@
 }
 
 .mainContainer {
-    width: 100%;
-    min-height: 1100px;
-    display: inline-flex;
-    justify-content: center;
-    margin: 0 auto;
-    /* align-items: center; */
-    /* background-color: azure; */
+  width: 100%;
+  min-height: 1100px;
+  display: inline-flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .mainContent {
@@ -36,17 +34,17 @@
 }
 
 .tab_links {
-    display: flex;
-    gap: 1rem;
-    border-bottom: 2px solid #ddd;
+  display: flex;
+  gap: 1rem;
+  border-bottom: 2px solid #ddd;
   }
   
   .tab {
-    background-color: var(--button-background-color);
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
+  background-color: var(--button-background-color);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
   }
   
   .tab:hover {
@@ -74,19 +72,22 @@
     background-color: var(--primary-background-color);
 }
 
+/* LATEST POSTS */
+
 .frontSide {
-    width: 20%;
-    height: 30rem;
-    background-color: var(--secondary-background-color);
-    display: flex;
-    /* padding-left: 1rem; */
+  width: 20%;
+  height: 30rem;
+  background-color: var(--secondary-background-color);
+  display: flex;
+  /* padding-left: 1rem; */
 }
 
 .sideContainer {
-  margin-left: 1.5rem;
-  margin-top: .5rem;
-  margin-right: 1.5rem;
-  background-color: var(--secondary-background-color);
+  margin: 1.5rem;
+  padding: .25rem;
+  /* background-color: var(--secondary-background-color); */
+  background-color: rgb(181, 110, 16);
+  border-radius: 1rem;
 }
 
 .sideContainer h1 {

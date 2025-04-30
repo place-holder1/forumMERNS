@@ -71,7 +71,7 @@ const ForumThread = () => {
       {categories.map((cat, catIndex) => (
         <div key={catIndex} className={styles.category_container}>
           <h2 className={styles.category_header}>
-            {cat.category} {/* change to match your schema */}
+            {cat.category} {/* change to match schema */}
             <span className={styles.desc}>{cat.description}</span>
           </h2>
 

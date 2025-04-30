@@ -1,7 +1,7 @@
 import styles from "./FrontPageContent/main.module.css"
 import TabLinks from "./TabLinks/TabLinks"
 // import ForumTopicThread from "./forumComponents/ForumTopicThread"
-import TopicsList from "./forumComponents/TopicsList"
+import TopicsList from "./PostThreads/TopicsList"
 // import Wrapper from "./Wrapper";
 
 const MainComponent = () => {

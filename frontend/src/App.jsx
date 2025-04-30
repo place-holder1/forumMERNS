@@ -13,6 +13,7 @@ import ProfilePage from "./pages/ProfilePage";
 import './styles/global.css'
 import './App.css'
 import CategoryPage from "./pages/CategoryPage";
+import CreatePostPage from "./pages/CreatePostPage";
 
 //Trying to aim for https://forums.pcgamer.com/trending/threads.1/ style
 
@@ -28,10 +29,11 @@ function App() {
           <Route path="/new" element={<NewPage/>} />
           <Route path="/category/:categoryName" element={<CategoryPage/>} />
           <Route path="/create" element={<ForumPage/>} />
+          <Route path="/createPost" element={<CreatePostPage/>} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
           <Route path="/posts/:postId" element={<PostPage />} />
-          <Route path="/profiles/:userID" element={<ProfilePage />} />
+          <Route path="/profiles" element={<ProfilePage />} />
         </Routes>
       
 

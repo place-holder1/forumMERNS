@@ -1,46 +1,129 @@
 .profileContainer {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+  width: 100%;
+  max-width: 100rem;
+  margin: 0 auto;
+  /* padding: 2rem; */
+  display: flex;
+  background-color: var(--secondary-background-color);
+  border-radius: 1rem;
   }
-  
-  .profileHeader {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+
+  .sideNav {
+  width: 20rem;
+  margin: 2rem;
   }
+
+  .sideNavContainer {
+  /* margin-right: 5rem; */
+  padding: 1rem;
+  border-radius: 1rem;
+  /* padding-right: 4rem; */
+  background-color: #712323;
+  width: 15rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: rgb(34, 46, 188);
+}
+
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.option {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+  color: #333;
+}
+
+.option:hover {
+  background-color: #eee;
+}
+
+.active {
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+.icon {
+  margin-right: 0.5rem;
+}
+
+/* PROFILE MAIN */
   
-  .profileAvatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  }
-  
-  .profileUsername {
-    font-size: 2rem;
-    margin: 0;
-  }
-  
-  .profileBio {
-    font-size: 1rem;
-    color: gray;
-  }
-  
-  .profileJoinDate {
-    font-size: 0.9rem;
-    color: darkgray;
-  }
-  
-  .profilePosts {
-    margin-top: 2rem;
-  }
-  
-  .profilePostLink {
-    text-decoration: none;
-    color: dodgerblue;
-  }
-  
-  .profilePostLink:hover {
-    text-decoration: underline;
-  }
-  
+.profileMain {
+  background-color: #9f4242;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.profileHeader {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.profileAvatar {
+  width: 6.25rem;
+  height: 6.25rem;
+  border-radius: 1rem;
+  border: 2px solid #ccc;
+  /* background-color: white; */
+}
+
+.profileDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.profileUsername {
+  float: left;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: var(--text-color);
+}
+
+.profileBio {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin: 0.25rem 0;
+}
+
+.profileJoinDate {
+  font-size: 0.875rem;
+}
+
+.profilePosts {
+  margin-top: 2rem;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.profilePosts h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #333;
+}
+
+.profilePostLink {
+  display: block;
+  padding: 0.5rem 0;
+  text-decoration: none;
+  color: #0073e6;
+  transition: color 0.2s ease;
+}
+
+.profilePostLink:hover {
+  text-decoration: underline;
+  color: #005bb5;
+}

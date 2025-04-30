@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import TabLinks from '../components/TabLinks/TabLinks';
 import Profile from '../components/Profile/Profile';
 
 const ProfilePage = () => {
@@ -8,8 +9,7 @@ const ProfilePage = () => {
   
     return (
       <div className='Yes'>
-        <h1>Vyeyeyeet: {user}</h1>
-        <p>This is where the post content will go.</p>
+        <TabLinks/>
         <Profile/>
       </div>
     );

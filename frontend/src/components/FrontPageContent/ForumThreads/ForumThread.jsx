@@ -30,13 +30,13 @@ const ForumThread = () => {
   const TopicCard = ({ topic }) => (
     <div className={styles.thread_container}>
       <span className={styles.topic_image}>
-        <Link to={`/posts/${topic.topic}`}>
+        <Link to={`/category/${topic.topic}`}>
             <img src={topic.image} alt={topic.topic} className={styles.topic_image} />
         </Link>
       </span>
 
       <div className={styles.topic_text_container}>
-        <Link to={`/posts/${topic.topic}`}>{topic.topic}</Link>
+        <Link to={`/category/${topic.topic}`}>{topic.topic}</Link>
       </div>
 
       {topic.showStats && (

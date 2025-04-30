@@ -94,8 +94,25 @@ for (let i = 0; i < 10; i++) {
   topics.push({ ...topicThread, showStats: true, showRecentPost: true });
 }
 
+const topicsPerPage = 20;
+const numberOfPages = Math.ceil(topics.length / topicsPerPage);
+
   return (
     <div className={styles.category_container}>
+      <div className={styles.outer}>
+        <div className={styles.threadPageCount}>
+          {Array.from({ length: numberOfPages }, (_, i) => (
+            <span key={i} className={styles.pageNumber}>
+              {i + 1}
+            </span>
+          ))}
+        </div>
+        <div className={styles.newPost}>
+          <Link to={"/createPost"}>
+            <span className={styles.createPost}>Create Post</span>
+          </Link>
+        </div>
+      </div>
       <h2 className={styles.category_header}>
         {categoryThread.topic}
         <span className={styles.desc}>{categoryThread.description}</span>
@@ -104,6 +121,20 @@ for (let i = 0; i < 10; i++) {
       {topics.map((t, i) => (
         <TopicCard key={i} topic={t} />
       ))}
+      <div className={styles.outer}>
+        <div className={styles.threadPageCount}>
+          {Array.from({ length: numberOfPages }, (_, i) => (
+            <span key={i} className={styles.pageNumber}>
+              {i + 1}
+            </span>
+          ))}
+        </div>
+        <div className={styles.newPost}>
+          <Link to={"/createPost"}>
+            <span className={styles.createPost}>Create Post</span>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

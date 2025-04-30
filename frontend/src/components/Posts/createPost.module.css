@@ -1,0 +1,57 @@
+.container {
+    max-width: 50rem;
+    margin: 2rem auto;
+    padding: 1.25rem;
+    background-color: var(--secondary-background-color);
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+  }
+  
+  .header {
+    margin-bottom: 1.25rem;
+    color: var(--text-color);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+  
+  .input,
+  .textarea {
+    padding: .75rem;
+    border: 1px solid #aaa;
+    border-radius: .25rem;
+    font-family: inherit;
+  }
+  
+  .input:focus,
+  .textarea:focus {
+    border-color: var(--text-color);
+    outline: none;
+  }
+  
+  .submitButton {
+    background-color: #e3e3;
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+  
+  .submitButton:hover {
+    background-color: var(--primary-background-color);
+  }
+  
