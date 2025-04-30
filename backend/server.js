@@ -8,6 +8,7 @@ import postRoutes from "./routes/posts.route.js";
 import userRoutes from "./routes/users.route.js";
 import categoriesRoutes from "./routes/categories.route.js"
 import messageRoutes from "./routes/messages.route.js"
+import characterRoutes from "./routes/characters.routes.js";
 
 dotenv.config();
 
@@ -18,10 +19,12 @@ const PORT = process.env.PORT || 5000;
 
 const __dirname = path.resolve();
 
+
 app.use("/api/posts", postRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/messages", messageRoutes);
+app.use("/api/characters", characterRoutes);
 
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "/frontend/dist")));

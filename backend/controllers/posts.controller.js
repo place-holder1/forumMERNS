@@ -62,7 +62,7 @@ export const getPost = async (req, res) => {
 export const createPost = async (req, res) => {
     const post = req.body; // post will send this data
 
-    if(!post.title || !post.post || !post.character) {
+    if(!post.title || !post.body || !post.character) {
         return res.status(400).json({ success: false, message: "Invalid!"});
     }
 

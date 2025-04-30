@@ -1,5 +1,5 @@
-import {HashRouter, Route, Routes } from "react-router-dom";
-
+import { HashRouter, Route, Routes } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
 import HomePage from './pages/HomePage';
 import NewPage from './pages/NewPage'
 import ForumPage from './pages/ForumPage';
@@ -14,35 +14,37 @@ import './styles/global.css'
 import './App.css'
 import CategoryPage from "./pages/CategoryPage";
 import CreatePostPage from "./pages/CreatePostPage";
-
 //Trying to aim for https://forums.pcgamer.com/trending/threads.1/ style
 
 function App() {
+
   return (
     <HashRouter>
-      <header>
-        <Navbar/>
-      </header>
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage/>} />
-          <Route path="/new" element={<NewPage/>} />
-          <Route path="/category/:categoryName" element={<CategoryPage/>} />
-          <Route path="/create" element={<ForumPage/>} />
-          <Route path="/createPost" element={<CreatePostPage/>} />
-          <Route path="/login" element={<LoginPage/>} />
-          <Route path="/register" element={<RegisterPage/>} />
-          <Route path="/posts/:postId" element={<PostPage />} />
-          <Route path="/profiles" element={<ProfilePage />} />
-        </Routes>
-      
+      <AuthProvider>
+        <header>
+          <Navbar />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/new" element={<NewPage />} />
+            <Route path="/category/:categoryName" element={<CategoryPage />} />
+            <Route path="/create" element={<ForumPage />} />
+            <Route path="/createPost" element={<CreatePostPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/posts/:postId" element={<PostPage />} />
+            <Route path="/profiles" element={<ProfilePage />} />
+          </Routes>
 
-      <ChatWindow/>
-      </main>
-      <footer>
-        <Footer/>
-      </footer>
-    </HashRouter>
+
+          <ChatWindow />
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </AuthProvider>
+    </HashRouter >
 
 
     // To refresh the page every time:

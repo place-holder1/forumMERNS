@@ -14,10 +14,9 @@ export const AuthProvider = ({ children }) => {
     const login = () => {
         setIsLogin(true);
         localStorage.setItem("userLoggedIn", "true");
-
     }
     const logout = () => {
-        fetch("https://web.ics.purdue.edu/~omihalic/forumMERN/logout.php")
+        fetch("https://web.ics.purdue.edu/~omihalic/logout.php")
             .then((response) => response.json())
             .then((data) => {
                 if (data.message) {

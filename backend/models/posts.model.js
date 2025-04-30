@@ -9,7 +9,7 @@ const postSchema = new mongoose.Schema({
     required: [true, "can't be blank"],
     index: true,
   },
-  post: {
+  body: {
     type: String,
     required: [true, "can't be blank"],
   },

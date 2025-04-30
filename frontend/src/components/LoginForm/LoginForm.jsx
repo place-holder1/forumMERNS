@@ -1,10 +1,8 @@
-import { useState, useEffect, useContext, useRef } from "react";
+import { useEffect, useRef } from "react";
 import style from "./login.module.css";
-//import AuthContext from "../contexts/AuthContext";
 import useAuthform from "../../contexts/authFormHook";
 
 const LoginForm = ({ isRegister = false }) => {
-    //const { login } = useContext(AuthContext);
     const { data, errors, submitting, successMessage, handleChange, handleSubmit } = useAuthform(isRegister);
     const nameRef = useRef(null);
     useEffect(() => {
