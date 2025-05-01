@@ -1,19 +1,9 @@
-.profileContainer {
-  width: 100%;
-  max-width: 100rem;
-  margin: 0 auto;
-  /* padding: 2rem; */
-  display: flex;
-  background-color: var(--secondary-background-color);
-  border-radius: 1rem;
-  }
-
-  .sideNav {
+.sideNav {
   width: 20rem;
   margin: 2rem;
-  }
+}
 
-  .sideNavContainer {
+.sideNavContainer {
   /* margin-right: 5rem; */
   padding: 1rem;
   border-radius: 1rem;
@@ -54,91 +44,343 @@
   margin-right: 0.5rem;
 }
 
-/* PROFILE MAIN */
-  
+/* Main Container Layout */
+.profileContainer {
+  display: flex;
+  max-width: 1200px;
+  margin: 2rem auto;
+  gap: 2rem;
+  background-color: var(--secondary-background-color);
+  border-radius: 1rem;
+  min-height: 70vh;
+}
+
+/* Main Profile Content */
 .profileMain {
-  background-color: var(--button-background-color);
-  padding: 2rem;
-  margin: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   flex: 1;
+  padding: 2rem;
+  background-color: var(--button-background-color);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .profileHeader {
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.profileAvatar {
-  width: 6.25rem;
-  height: 6.25rem;
-  border-radius: 1rem;
-  border: 2px solid #ccc;
-  /* background-color: white; */
-}
-
-.profileDetails {
-  display: flex;
-  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
   align-items: flex-start;
 }
 
+.profileAvatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 1rem;
+  object-fit: cover;
+  border: 3px solid var(--light-background-color);
+  background-color: white;
+}
+
+.profileDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .profileUsername {
-  float: left;
   font-size: 1.75rem;
-  font-weight: 600;
-  margin: 0 0 0.25rem;
+  font-weight: 700;
+  margin: 0;
   color: var(--text-color);
+  line-height: 1.2;
 }
 
 .profileBio {
   font-size: 1rem;
+  line-height: 1.5;
   color: var(--text-color);
-  margin: 0.25rem 0;
+  margin: 0.5rem 0;
 }
 
 .profileJoinDate {
   font-size: 0.875rem;
+  color: var(--light-text-color);
+  margin-top: 0.25rem;
 }
 
-.profilePosts {
-  margin-top: 2rem;
-  border-top: 1px solid #ddd;
-  padding-top: 1rem;
-}
-
-.profilePosts h2 {
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
-  color: #333;
-}
-
-.profilePostLink {
-  display: block;
-  padding: 0.5rem 0;
-  text-decoration: none;
-  color: #0073e6;
-  transition: color 0.2s ease;
-}
-
-.profilePostLink:hover {
-  text-decoration: underline;
-  color: #005bb5;
-}
-
-.button {
-  background-color: var(--button-background-color);
-  color: var(--text-color);
+.editProfileButton {
+  align-self: flex-start;
+  padding: 0.5rem 1.25rem;
+  background-color: var(--primary-accent-color);
+  color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 0.5rem;
+  font-weight: 500;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.2s ease;
-  justify-content: right;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
 }
-.button:hover {
-  background-color: var(--button-hover-background-color);
-  color: var(--button-hover-text-color);
+
+.editProfileButton:hover {
+  background-color: var(--primary-accent-dark);
+  transform: translateY(-1px);
+}
+
+/* Profile Content Sections */
+.profileContent {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--divider-color);
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: var(--light-text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profileContainer {
+    flex-direction: column;
+    margin: 1rem;
+  }
+
+  .sideNav {
+    width: auto;
+    margin-bottom: 1rem;
+  }
+
+  .profileHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profileDetails {
+    align-items: center;
+  }
+
+  .editProfileButton {
+    align-self: center;
+  }
+
+  .container {
+    max-width: 50rem;
+    margin: 2rem auto;
+    padding: 1.25rem;
+    background-color: var(--secondary-background-color);
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+  }
+
+  .header {
+    margin-bottom: 1.25rem;
+    color: var(--text-color);
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .label {
+    font-weight: bold;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  .input,
+  .textarea {
+    padding: .75rem;
+    border: 1px solid #aaa;
+    border-radius: .25rem;
+    font-family: inherit;
+  }
+
+  .input:focus,
+  .textarea:focus {
+    border-color: var(--text-color);
+    outline: none;
+  }
+
+  .submitButton {
+    background-color: #e3e3;
+    color: var(--text-color);
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+
+  .submitButton:hover {
+    background-color: var(--primary-background-color);
+  }
+
+  .editProfileForm {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background-color: var(--button-background-color);
+    border-radius: 1.25rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .editProfileTitle {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+
+  .formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .formGroup.fullWidth {
+    grid-column: span 2;
+  }
+
+  .formLabel {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.95rem;
+  }
+
+  .formInput {
+    padding: 1rem;
+    border: 2px solid var(--divider-color);
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    background-color: var(--light-background-color);
+    color: var(--text-color);
+    transition: all 0.25s ease;
+    width: 100%;
+  }
+
+  .formInput:hover {
+    border-color: var(--primary-accent-light);
+  }
+
+  .formInput:focus {
+    border-color: var(--primary-accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+  }
+
+  .formTextarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+    padding: 1rem;
+  }
+
+
+  /* Save Button */
+  .saveButton {
+    padding: 1rem 2rem;
+    background-color: var(--primary-accent-color);
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    align-self: flex-end;
+    margin-top: 1rem;
+    width: auto;
+    min-width: 180px;
+    text-align: center;
+  }
+
+  .saveButton:hover {
+    background-color: var(--primary-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .saveButton:active {
+    transform: translateY(0);
+  }
+
+  /* URL Preview */
+  .urlPreview {
+    font-size: 0.85rem;
+    color: var(--light-text-color);
+    margin-top: 0.25rem;
+    word-break: break-all;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .editProfileForm {
+      padding: 1.75rem;
+      gap: 1.5rem;
+    }
+
+    .formGrid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .formGroup.fullWidth {
+      grid-column: span 1;
+    }
+
+    .saveButton {
+      width: 100%;
+      align-self: center;
+    }
+  }
+
+  /* Animation Enhancements */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .editProfileForm {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .formGroup {
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 0.1s;
+  }
 }

@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 import User from "../models/users.model.js";
 import bcrypt from "bcryptjs";
 
-
 export const getUser = async (req, res) => {
     try {
         const users = await User.find({});
@@ -83,6 +82,13 @@ export const createUser = async (req, res) => {
         });
     }
 
+    if (password.length < 8) {
+        return res.status(400).json({
+            success: false,
+            message: 'Password must be at least 8 characters'
+        });
+    }
+
     try {
         // Check for existing user (case-insensitive)
         const existingUser = await User.findOne({
@@ -155,17 +161,80 @@ export const createUser = async (req, res) => {
 
 export const updateUser = async (req, res) => {
     const { id } = req.params;
-    const user = req.body;
+    const updates = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ success: false, message: "Invalid User ID" });
+        return res.status(400).json({ success: false, message: "Invalid User ID" });
     }
 
     try {
-        const updatedUser = await User.findByIdAndUpdate(id, user, { new: true });
-        res.status(200).json({ success: true, data: updatedUser });
+        // Prevent updating certain fields
+        const disallowedUpdates = ['_id', 'createdAt', 'updatedAt', 'password'];
+        disallowedUpdates.forEach(field => delete updates[field]);
+
+        // Special handling if password is being updated
+        if (updates.password) {
+            const salt = await bcrypt.genSalt(10);
+            updates.password = await bcrypt.hash(updates.password, salt);
+        }
+
+        // Only allow updates to specific fields
+        const allowedUpdates = ['username', 'email', 'bio', 'avatarUrl'];
+        const isValidOperation = Object.keys(updates).every(field =>
+            allowedUpdates.includes(field)
+        );
+
+        if (!isValidOperation) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid updates attempted"
+            });
+        }
+
+        const updatedUser = await User.findByIdAndUpdate(
+            id,
+            updates,
+            {
+                new: true,
+                runValidators: true // Ensures updates follow schema rules
+            }
+        ).select('-password'); // Don't return password
+
+        if (!updatedUser) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found"
+            });
+        }
+
+        res.status(200).json({
+            success: true,
+            user: updatedUser
+        });
+
     } catch (error) {
-        res.status(500).json({ success: false, message: "Server Error" });
+        console.error("Update error:", error);
+
+        if (error.name === 'ValidationError') {
+            const messages = Object.values(error.errors).map(val => val.message);
+            return res.status(400).json({
+                success: false,
+                message: messages.join(', ')
+            });
+        }
+
+        if (error.code === 11000) {
+            const field = error.keyPattern.username ? 'username' : 'email';
+            return res.status(400).json({
+                success: false,
+                message: `${field} already exists`
+            });
+        }
+
+        res.status(500).json({
+            success: false,
+            message: "Server error during update"
+        });
     }
 };
 

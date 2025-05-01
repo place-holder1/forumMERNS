@@ -1,40 +1,79 @@
 import styles from './profile.module.css';
 import { Link } from 'react-router-dom';
-// import { useContext } from "react";
-import { useUserStore } from "../../store/user"; // Zustand store for user state    
-import { AuthContext } from "../../contexts/AuthContext"; // Context for authentication
+import { useUserStore } from "../../store/user";
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ProfileMain = () => {
-
-  // In the future, maybe add a switch to each option here?
-
+  const navigate = useNavigate();
   const { user } = useUserStore();
-  // user? = user might be null, so it'll get data from user instead.
+  
+  // Redirect if no user is logged in
+  useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
 
-  const userData = {
-    username: user?.username,
-    avatarUrl: user?.avatarUrl || "https://images-ext-1.discordapp.net/external/jiW5Zq7KJs8iEBlsClaPvggLaUkKuSCLrT0KLIGGPQE/https/forums.stardewvalley.net/styles/classic/default_avi.jpg?format=webp&width=313&height=313",
-    bio: "why am I so sad.",
+  // Return loading state if user data isn't available yet
+  if (!user) {
+    return <div className={styles.loadingContainer}>Loading profile...</div>;
+  }
+
+  // Format join date if available
+  const formatJoinDate = () => {
+    if (!user.createdAt) return null;
+    
+    try {
+      const joinDate = new Date(user.createdAt);
+      return `Joined ${joinDate.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long' 
+      })}`;
+    } catch {
+      return null;
+    }
   };
 
   return (
     <div className={styles.profileMain}>
       <div className={styles.profileHeader}>
         <img
-          src={userData.avatarUrl}
-          alt={`${userData.username}'s avatar`}
+          src={user.avatarUrl || "https://images-ext-1.discordapp.net/external/jiW5Zq7KJs8iEBlsClaPvggLaUkKuSCLrT0KLIGGPQE/https/forums.stardewvalley.net/styles/classic/default_avi.jpg"}
+          alt={`${user.username}'s avatar`}
           className={styles.profileAvatar}
+          onError={(e) => {
+            e.target.src = "https://images-ext-1.discordapp.net/external/jiW5Zq7KJs8iEBlsClaPvggLaUkKuSCLrT0KLIGGPQE/https/forums.stardewvalley.net/styles/classic/default_avi.jpg";
+          }}
         />
+        
         <div className={styles.profileDetails}>
-          <h1 className={styles.profileUsername}>{userData.username}</h1>
-          <p className={styles.profileBio}>{userData.bio}</p>
-          <p className={styles.profileJoinDate}>{userData.joinDate}</p>
+          <h1 className={styles.profileUsername}>
+            {user.username || 'Anonymous User'}
+          </h1>
+          
+          {user.bio && (
+            <p className={styles.profileBio}>
+              {user.bio}
+            </p>
+          )}
+          
+          {formatJoinDate() && (
+            <p className={styles.profileJoinDate}>
+              {formatJoinDate()}
+            </p>
+          )}
         </div>
-        <button className={styles.editProfileButton}>
-          <Link to="/edit-profile" className={styles.editProfileLink}>
-            Edit Profile
-          </Link>
-        </button>
+        
+        <Link 
+          to="/edit-profile" 
+          className={styles.editProfileButton}
+        >
+          Edit Profile
+        </Link>
+      </div>
+      
+      <div className={styles.profileContent}>
       </div>
     </div>
   );

@@ -1,87 +1,109 @@
+import { useEffect, useState, useRef } from 'react';
 import { useUserStore } from "../../store/user";
-import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./profile.module.css";
-import ProfileSide from "./ProfileSide";
+import styles from './profile.module.css';
 
 const EditProfile = () => {
     const navigate = useNavigate();
-    const { user, setUser } = useUserStore((state) => ({
-        user: state.user,
-        setUser: state.setUser,
-    }));
+    const { user, setUser, updateUser } = useUserStore();
+    const [profileData, setProfileData] = useState(null);
+    const initialized = useRef(false);
 
-    // Initialize with empty fields or provide default values
-    const [profileData, setProfileData] = useState({
-        username: '',
-        email: '',
-        avatarUrl: '',
-        bio: '',
-        ...user // Spread user properties if they exist
-    });
-
+    // Safe initialization
     useEffect(() => {
-        if (!user) {
-            navigate("/login");
-        } else {
-            // Update profileData when user changes
+        if (!initialized.current && user) {
             setProfileData({
                 username: user.username || '',
                 email: user.email || '',
                 avatarUrl: user.avatarUrl || '',
                 bio: user.bio || ''
             });
+            initialized.current = true;
         }
+    }, [user]);
+
+    // Navigation guard
+    useEffect(() => {
+        if (!user) navigate("/login");
     }, [user, navigate]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setProfileData({ ...profileData, [name]: value });
+        setProfileData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Update the user profile data in the store
-        setUser(profileData);
-        // Optionally, you can also send a request to the backend to update the profile
+        if (!profileData || !user?._id) return;
+
+        try {
+            await updateUser(user._id, profileData);
+            setUser(profileData);
+        } catch (error) {
+            console.error("Update failed:", error);
+        }
     };
 
+    if (!profileData) return <div>Loading...</div>;
     return (
         <div className={styles.profileContainer}>
-            <aside className={styles.sideNav}>
-                <ProfileSide />
-            </aside>
             <main className={styles.mainContent}>
-                <h1>Edit Profile</h1>
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        Username:
-                        <input
-                            type="text"
-                            name="username"
-                            value={profileData.username}
-                            onChange={handleInputChange}
-                        />
-                    </label>
-                    <label>Profile Photo</label>
-                    <input type="text" name="avatarUrl" value={profileData.avatarUrl} onChange={handleInputChange} />
-                    <label>
-                        Email:
-                        <input
-                            type="email"
-                            name="email"
-                            value={profileData.email}
-                            onChange={handleInputChange}
-                        />
-                    </label>
-                    <label>Bio</label>
-                    <textarea name="bio" value={profileData.bio} onChange={handleInputChange} />
-                    <button type="submit">Save Changes</button>
+                <form className={styles.editProfileForm} onSubmit={handleSubmit}>
+                    <h2 className={styles.editProfileTitle}>Edit Profile</h2>
+
+                    <div className={styles.formGrid}>
+                        <div className={styles.formGroup}>
+                            <label className={styles.formLabel}>Username:</label>
+                            <input
+                                type="text"
+                                name="username"
+                                value={profileData.username}
+                                onChange={handleInputChange}
+                                className={styles.formInput}
+                            />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label className={styles.formLabel}>Profile Photo URL:</label>
+                            <input
+                                type="url"
+                                name="avatarUrl"
+                                value={profileData.avatarUrl}
+                                onChange={handleInputChange}
+                                className={styles.formInput}
+                            />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label className={styles.formLabel}>Email:</label>
+                            <input
+                                type="email"
+                                name="email"
+                                value={profileData.email}
+                                onChange={handleInputChange}
+                                className={styles.formInput}
+                                required
+                            />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label className={styles.formLabel}>Bio:</label>
+                            <textarea
+                                name="bio"
+                                value={profileData.bio}
+                                onChange={handleInputChange}
+                                className={`${styles.formInput} ${styles.formTextarea}`}
+                            />
+                        </div>
+                    </div>
+
+                    <button type="submit" className={styles.saveButton}>
+                        Save Changes
+                    </button>
                 </form>
             </main>
         </div>
     );
-
 }
 
 export default EditProfile;

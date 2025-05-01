@@ -14,7 +14,8 @@ import './styles/global.css'
 import './App.css'
 import CategoryPage from "./pages/CategoryPage";
 import CreatePostPage from "./pages/CreatePostPage";
-import EditProfile from "./components/Profile/EditProfile";
+import EditProfilePage from "./pages/EditProfilePage";
+
 //Trying to aim for https://forums.pcgamer.com/trending/threads.1/ style
 
 function App() {
@@ -36,7 +37,7 @@ function App() {
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/posts/:postId" element={<PostPage />} />
             <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/edit-profile" element={<EditProfile />} />
+            <Route path="/edit-profile" element={<EditProfilePage />} />
           </Routes>
 
 

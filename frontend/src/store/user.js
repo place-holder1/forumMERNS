@@ -1,4 +1,6 @@
 import { create } from "zustand";
+import User from "../../../backend/models/users.model";
+
 
 export const useUserStore = create((set) => ({
     user: null,
@@ -19,10 +21,11 @@ export const useUserStore = create((set) => ({
         }
         const user = localStorage.getItem("user");
         if (user) {
-            set({ user: JSON.parse(user),
+            set({
+                user: JSON.parse(user),
                 userId: JSON.parse(user)._id,
                 username: JSON.parse(user).username,
-             });
+            });
             localStorage.setItem("userID", JSON.parse(user)._id) // Set true if user exists
         } else {
             set({ user: null });
@@ -59,40 +62,50 @@ export const useUserStore = create((set) => ({
                 },
                 body: JSON.stringify(userData),
             });
-            
+
             const data = await response.json();
             console.log("Create User API Response:", data); // Debug log
-            
+
             if (!response.ok) {
                 return { error: data.message || "Registration failed" };
             }
-    
+
             if (data.user) {
                 set({ user: data.user });
                 localStorage.setItem("user", JSON.stringify(data.user));
                 localStorage.setItem("userLoggedIn", "true");
                 return { user: data.user };
             }
-            
+
             return { error: "Unexpected response format" };
         } catch (error) {
             console.error("Registration error:", error);
             return { error: error.message };
         }
     },
+    // In your user store (user.js)
     updateUser: async (userId, userData) => {
         try {
             const response = await fetch(`/api/users/${userId}`, {
                 method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(userData),
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(userData)
             });
+
+            if (!response.ok) throw new Error('Update failed');
+
             const data = await response.json();
-            set({ user: data });
+
+            // Use setTimeout to defer the state update
+            setTimeout(() => {
+                set({ user: data.user });
+                localStorage.setItem("user", JSON.stringify(data.user));
+            }, 0);
+
+            return data.user;
         } catch (error) {
-            console.error("Error updating user:", error);
+            console.error("Update error:", error);
+            throw error;
         }
     },
 }));
