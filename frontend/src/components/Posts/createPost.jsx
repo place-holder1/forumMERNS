@@ -5,29 +5,23 @@ import { useCharacterStore } from '../../store/character';
 import { useUserStore } from '../../store/user';
 import { useEffect } from 'react';
 
-const getCharacters = async () => {
-  const response = await fetch('/api/characters')
-  const data = await response.json()
-  return data
-}
-
-
 const CreatePost = () => {
-
+  
+  const { userId } = localStorage.getItem('userID') || null
   const { characters, setCharacters } = useCharacterStore((state) => state.characters)
   const [newPost, setNewPost] = useState({
     title: '',
     body: '',
     character: '',
     tags: [],
-    createdby: '', // This should be set to the logged-in user's ID
+    createdby: userId,
   });
 
   const { createPost } = usePostStore()
-  
+
   const handleAddPost = async (e) => {
     e.preventDefault()
-    const {success, message} = await createPost(newPost)
+    const { success, message } = await createPost(newPost)
     if (success) {
       alert('Post created successfully!')
       setNewPost({
@@ -40,11 +34,11 @@ const CreatePost = () => {
     } else {
       alert(message)
     }
-  
+
     return (
       <div className={styles.container}>
         <h2 className={styles.header}>Create New Post</h2>
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleAddPost}>
           <label className={styles.label}>
             Title
             <input
@@ -55,7 +49,7 @@ const CreatePost = () => {
               required
             />
           </label>
-  
+
           <label className={styles.label}>
             Body
             <textarea
@@ -95,7 +89,7 @@ const CreatePost = () => {
               placeholder="Comma separated tags"
             />
           </label>
-  
+
           <button type="submit" className={styles.submitButton}>
             Post
           </button>
