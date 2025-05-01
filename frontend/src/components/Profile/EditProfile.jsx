@@ -10,11 +10,27 @@ const EditProfile = () => {
         user: state.user,
         setUser: state.setUser,
     }));
-    const [profileData, setProfileData] = useState(user);
+
+    // Initialize with empty fields or provide default values
+    const [profileData, setProfileData] = useState({
+        username: '',
+        email: '',
+        avatarUrl: '',
+        bio: '',
+        ...user // Spread user properties if they exist
+    });
 
     useEffect(() => {
         if (!user) {
             navigate("/login");
+        } else {
+            // Update profileData when user changes
+            setProfileData({
+                username: user.username || '',
+                email: user.email || '',
+                avatarUrl: user.avatarUrl || '',
+                bio: user.bio || ''
+            });
         }
     }, [user, navigate]);
 
