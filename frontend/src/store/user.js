@@ -19,7 +19,11 @@ export const useUserStore = create((set) => ({
         }
         const user = localStorage.getItem("user");
         if (user) {
-            set({ user: JSON.parse(user) });
+            set({ user: JSON.parse(user),
+                userId: JSON.parse(user)._id,
+                username: JSON.parse(user).username,
+             });
+            localStorage.setItem("userID", JSON.parse(user)._id) // Set true if user exists
         } else {
             set({ user: null });
         }

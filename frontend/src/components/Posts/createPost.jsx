@@ -6,8 +6,8 @@ import { useUserStore } from '../../store/user';
 import { useEffect } from 'react';
 
 const CreatePost = () => {
-  const { userId } = useUserStore((state) => state.userId)
-
+  
+  const { userId } = localStorage.getItem('userID') || null
   const { characters, setCharacters } = useCharacterStore((state) => state.characters)
   const [newPost, setNewPost] = useState({
     title: '',
