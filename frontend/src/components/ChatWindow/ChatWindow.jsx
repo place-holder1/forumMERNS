@@ -1,5 +1,6 @@
 import styles from "./chat-window.module.css";
 import { useState } from "react";
+import { useUserStore } from '../../store/user';
 
 const ChatWindow = () => {
   const [messages, setMessages] = useState([
@@ -8,10 +9,12 @@ const ChatWindow = () => {
   ]);
   const [input, setInput] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  
+  const { user } = useUserStore();
 
   const handleSend = () => {
     if (!input.trim()) return;
-    setMessages([...messages, { id: Date.now(), user: "You", text: input }]);
+    setMessages([...messages, { id: Date.now(), user: user?.username, text: input }]);
     setInput("");
   };
 

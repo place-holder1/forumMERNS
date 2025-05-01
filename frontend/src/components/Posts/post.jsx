@@ -1,5 +1,6 @@
 import styles from "./post.module.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Posts = () => {
   const [posts] = useState([
@@ -32,7 +33,7 @@ const Posts = () => {
   const UserInfo = ({ user }) => (
     <aside className={styles.user_Container}>
       <img className={styles.avatar} src={user.avatar} alt={`${user.username}'s avatar`} />
-      <div className={styles.username}>{user.username}</div>
+      <Link to="/profile/:username"><div className={styles.username}>{user.username}</div></Link>
       <div className={styles.title}>{user.title}</div>
       <div className={styles.stats}>
         <div><strong>Posts:</strong> {user.postCount}</div>
