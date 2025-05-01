@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 import User from "../models/users.model.js";
+import bcrypt from "bcryptjs";
+
 
 export const getUser = async (req, res) => {
     try {
@@ -12,40 +14,142 @@ export const getUser = async (req, res) => {
 };
 
 export const checkLogin = async (req, res) => {
-    const { username, password } = req.body; // user will send this data
+    const { username, password } = req.body;
 
     if (!username || !password) {
-        return res.status(400).json({ success: false, message: "Please provide all fields" });
+        return res.status(400).json({
+            success: false,
+            message: "Please provide both username and password"
+        });
     }
 
     try {
-        const user = await User.findOne({ username, password });
+        // Debug: Log the incoming credentials
+        console.log('Login attempt for:', username);
+
+        // Find user by exact lowercase username match
+        const user = await User.findOne({
+            username: username.toLowerCase()
+        }).select('+password');
+
         if (!user) {
-            console.log("Invalid credentials:", username, password, user);
-            return res.status(401).json({ success: false, message: "Invalid credentials" });
+            console.log('User not found');
+            return res.status(401).json({
+                success: false,
+                message: "Invalid username or password"
+            });
         }
-        res.status(200).json({ success: true, data: user });
+
+        // Debug: Log the stored hash and input password
+        console.log('Stored hash:', user.password.substring(0, 20) + '...');
+        console.log('Input password:', password);
+
+        // Compare passwords
+        const isMatch = await bcrypt.compare(password, user.password);
+        console.log('Password match:', isMatch);
+
+        if (!isMatch) {
+            return res.status(401).json({
+                success: false,
+                message: "Invalid username or password"
+            });
+        }
+
+        // Create user object without password
+        const userObj = user.toObject();
+        delete userObj.password;
+
+        return res.status(200).json({
+            success: true,
+            user: userObj
+        });
+
     } catch (error) {
-        console.error("Error in login:", error.message);
-        res.status(500).json({ success: false, message: "Server Error" });
+        console.error("Login error:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Server error during login"
+        });
     }
-}
+};
 
 export const createUser = async (req, res) => {
-    const user = req.body; // user will send this data
+    const { username, email, password } = req.body;
 
-    if (!user.username || !user.email || !user.password) {
-        return res.status(400).json({ success: false, message: "Please provide all fields" });
+    if (!username || !email || !password) {
+        return res.status(400).json({
+            success: false,
+            message: "Username, email and password are required"
+        });
     }
 
-    const newUser = new User(user);
-
     try {
+        // Check for existing user (case-insensitive)
+        const existingUser = await User.findOne({
+            $or: [
+                { username: { $regex: new RegExp(`^${username}$`, 'i') } },
+                { email: { $regex: new RegExp(`^${email}$`, 'i') } }
+            ]
+        });
+
+        if (existingUser) {
+            const field = existingUser.username.toLowerCase() === username.toLowerCase()
+                ? 'username'
+                : 'email';
+            return res.status(400).json({
+                success: false,
+                message: `${field} already exists`
+            });
+        }
+
+        // Hash password
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        const newUser = new User({
+            username,
+            email,
+            password: hashedPassword,
+            bio: req.body.bio || "",
+            avatarUrl: req.body.avatarUrl || "https://images-ext-1.discordapp.net/external/jiW5Zq7KJs8iEBlsClaPvggLaUkKuSCLrT0KLIGGPQE/https/forums.stardewvalley.net/styles/classic/default_avi.jpg?format=webp&width=313&height=313"
+        });
+
         await newUser.save();
-        res.status(201).json({ success: true, data: newUser });
+
+        // Remove password before sending response
+        const userObj = newUser.toObject();
+        delete userObj.password;
+
+        res.status(201).json({
+            success: true,
+            user: userObj
+        });
+
     } catch (error) {
-        console.error("Error in creating user:", error.message);
-        res.status(500).json({ success: false, message: "Server Error" });
+        console.error("Registration error:", error);
+
+        // Handle duplicate key errors (fallback)
+        if (error.code === 11000) {
+            const field = error.keyPattern.username ? 'username' : 'email';
+            return res.status(400).json({
+                success: false,
+                message: `${field} already exists`
+            });
+        }
+
+        // Handle validation errors
+        if (error.name === 'ValidationError') {
+            const messages = Object.values(error.errors).map(val => val.message);
+            return res.status(400).json({
+                success: false,
+                message: messages.join(', ')
+            });
+        }
+
+        res.status(500).json({
+            success: false,
+            message: "Server error during registration"
+        });
     }
 };
 

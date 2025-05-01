@@ -44,6 +44,7 @@ export function useAuthForm(isRegister) {
             let result;
             if (isRegister) {
                 result = await createUser(userData);
+                console.log('Registration result:', result);
                 if (result?.user) {
                     login(result.user);
                     navigate("/");
@@ -51,9 +52,10 @@ export function useAuthForm(isRegister) {
                 }
             } else {
                 result = await checkLogin({
-                    username: userData.username,
+                    username: userData.username.toLowerCase(),
                     password: userData.password
                 });
+                console.log('Login result:', result);
                 if (result?.user) {
                     login(result.user);
                     navigate("/");

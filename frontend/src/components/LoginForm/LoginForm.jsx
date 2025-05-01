@@ -23,28 +23,6 @@ const LoginForm = ({ isRegister = false }) => {
 
             {errors && <div className={style.error}>{errors}</div>}
 
-            <label htmlFor="username">Username</label>
-            <input
-                ref={nameRef}
-                type="text"
-                id="username"
-                name="username"
-                required
-                value={userData.username}
-                onChange={handleChange}
-            />
-
-            <label htmlFor="password">Password</label>
-            <input
-                type="password"
-                id="password"
-                name="password"
-                required
-                minLength={8}
-                value={userData.password}
-                onChange={handleChange}
-            />
-
             {isRegister && (
                 <>
                     <label htmlFor="email">Email</label>
@@ -58,6 +36,32 @@ const LoginForm = ({ isRegister = false }) => {
                     />
                 </>
             )}
+
+            <label htmlFor="username">Username</label>
+            <input
+                ref={nameRef}
+                type="text"
+                id="username"
+                name="username"
+                autoComplete="username"
+                autoFocus
+                minLength={3}
+                required
+                value={userData.username}
+                onChange={handleChange}
+            />
+
+            <label htmlFor="password">Password</label>
+            <input
+                type="password"
+                autoComplete={isRegister ? "new-password" : "current-password"}
+                id="password"
+                name="password"
+                required
+                minLength={8}
+                value={userData.password}
+                onChange={handleChange}
+            />
 
             <button
                 type="submit"

@@ -26,7 +26,7 @@ export const useUserStore = create((set) => ({
     },
     checkLogin: async (userData) => {
         try {
-            const response = await fetch("/api/login", {
+            const response = await fetch("/api/users/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(userData),
@@ -35,6 +35,7 @@ export const useUserStore = create((set) => ({
             if (!response.ok) throw new Error("Login failed");
 
             const data = await response.json();
+            console.log('API Login response:', data);
             if (!data.user) throw new Error(data.message || "Invalid credentials");
 
             set({ user: data.user });
@@ -54,12 +55,25 @@ export const useUserStore = create((set) => ({
                 },
                 body: JSON.stringify(userData),
             });
+            
             const data = await response.json();
-            set((state) => ({ user: { ...state.user, ...data.data } }));
-            localStorage.setItem("user", JSON.stringify(data.data));
-            localStorage.setItem("userLoggedIn", "true");
+            console.log("Create User API Response:", data); // Debug log
+            
+            if (!response.ok) {
+                return { error: data.message || "Registration failed" };
+            }
+    
+            if (data.user) {
+                set({ user: data.user });
+                localStorage.setItem("user", JSON.stringify(data.user));
+                localStorage.setItem("userLoggedIn", "true");
+                return { user: data.user };
+            }
+            
+            return { error: "Unexpected response format" };
         } catch (error) {
-            console.error("Error creating user:", error);
+            console.error("Registration error:", error);
+            return { error: error.message };
         }
     },
     updateUser: async (userId, userData) => {
