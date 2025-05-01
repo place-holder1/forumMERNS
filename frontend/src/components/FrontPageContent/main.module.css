@@ -37,62 +37,63 @@
   display: flex;
   gap: 1rem;
   border-bottom: 2px solid #ddd;
-  }
-  
-  .tab {
+}
+
+.tab {
   background-color: var(--button-background-color);
   padding: 0.5rem 1rem;
   text-decoration: none;
   color: var(--text-color);
   font-weight: 500;
-  }
-  
-  .tab:hover {
-    color: #000;
-  }
-  
-  .active {
-    border-bottom: 2px solid blue;
-    color: blue;
-  }
+  border-radius: 1rem 1rem 0 0;
+  margin-right: 0.25%;
+}
 
-  .tabWrapper {
-    /* Me no like right now */
-    width: 100%;
-    /* max-width: 1600px; */
-    margin: 0 auto;
-    padding: 1rem 0;
-    display: inline-flex;
-    justify-content: center;
-  }
+.tab:hover {
+  color: #000;
+}
 
-  .frontMain {
-    width: 70%;
-    /* height: 500px; */
-    background-color: var(--primary-background-color);
+.active {
+  border-bottom: 2px solid var(--button-background-color);
+  color: var(--button-border-color);
+}
+
+.tabWrapper {
+  /* Me no like right now */
+  width: 100%;
+  /* max-width: 1600px; */
+  margin: 0 auto;
+  margin-left: 13%;
+  display: inline-flex;
+  justify-content: left;
+}
+
+.frontMain {
+  width: 70%;
+  /* height: 500px; */
+  background-color: var(--primary-background-color);
 }
 
 /* LATEST POSTS */
 
 .frontSide {
   width: 20%;
-  height: 30rem;
-  background-color: var(--secondary-background-color);
+  height: 26rem;
   display: flex;
-  /* padding-left: 1rem; */
-}
-
-.sideContainer {
-  margin: 1.5rem;
-  padding: .25rem;
-  /* background-color: var(--secondary-background-color); */
-  background-color: rgb(181, 110, 16);
+  padding: .5rem;
+  background-color: var(--secondary-background-color);
   border-radius: 1rem;
+}
+@media screen and (max-width: 768px) {
+  .frontSide {
+    display: none;
+  }  
 }
 
 .sideContainer h1 {
   text-align: left;
   margin-bottom: 1.5rem;
+  padding-left: 1rem;
 }
 
 .latest_content ul {
@@ -100,6 +101,8 @@
   padding: 0;
   margin: 0;
   padding-left: 0;
+  background-color: #151515;
+  padding: 1rem;
 }
 
 .latest_content li {

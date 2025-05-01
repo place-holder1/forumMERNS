@@ -5,15 +5,17 @@ import TabLinks from "../TabLinks/TabLinks";
 // import Wrapper from "./Wrapper";
 
 const MainComponent = () => {
-    
-    return(
+
+    return (
         <div className={"Main"}>
-            <TabLinks/>
+            <TabLinks />
             <div className={styles.mainContainer}>
+
                 <div className={styles.mainContent}>
+
                     {/* <h2>HELLO!</h2> */}
-                    <FrontMain/>
-                    <FrontSide/>
+                    <FrontMain />
+                    <FrontSide />
                 </div>
             </div>
         </div>

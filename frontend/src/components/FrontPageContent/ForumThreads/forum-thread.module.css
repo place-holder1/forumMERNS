@@ -2,16 +2,11 @@
 
 /* Dashes will have to be underscores instead because of React */
 
-.category_container {
-
-}
-
 .category_header {
 
     /* background: repeat scroll 0 0 var(--color-1) !important; */
     background-color: var(--secondary-background-color);
     /* height: 50px; */
-    border-color: red !important;
     /* box-shadow: 0 1px 0 #F4A31C inset !important; */
     text-align: left;
     
@@ -34,10 +29,10 @@
 .thread_container {
     /* background-color: var(--color-2); */
     /* background-color: var(--primary-background-color); */
-    background-color: rgb(132, 49, 49);
+    background-color: #151515;
     height: 100px;
     /* padding-top: 15px; */
-    border: 2px black;
+    border-color: var(--primary-background-color);
     border-top: 5px solid var(--color-4);
     
     display: flex;
@@ -47,8 +42,13 @@
 
 }
 
-.thread_container:nth-of-type(even){
-    background-color: pink;
+.thread_container:nth-of-type(2n){
+    background-color: #1a1a1a;
+}
+
+.thread_container:hover {
+    background-color: #222;
+    cursor: pointer;
 }
 
 .thread_container:last-child {
