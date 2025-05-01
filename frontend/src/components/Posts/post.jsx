@@ -33,7 +33,7 @@ const Posts = () => {
   const UserInfo = ({ user }) => (
     <aside className={styles.user_Container}>
       <img className={styles.avatar} src={user.avatar} alt={`${user.username}'s avatar`} />
-      <Link to="/profile/:username"><div className={styles.username}>{user.username}</div></Link>
+      <Link to={`/profile/${user.username}`}><div className={styles.username}>{user.username}</div></Link>
       <div className={styles.title}>{user.title}</div>
       <div className={styles.stats}>
         <div><strong>Posts:</strong> {user.postCount}</div>
