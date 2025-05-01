@@ -12,9 +12,11 @@ const PostThread = () => {
 
   const [topicThread] = useState({
     topicID: "99999",
+    char_img: "https://web.ics.purdue.edu/~omihalic/Villagers/Alex.png",
     image:
       "https://forums.stardewvalley.net/styles/classic/default_avi.jpg",
     topic: "No",
+    character: "Alex",
     user: "jester",
     description: "Hi!",
     date: "Dec 31, 1999",
@@ -29,7 +31,7 @@ const TopicCard = ({ topic }) => {
       <span className={styles.topic_image}>
         <Link to={`/profile/${topic.user}`}>
           <img
-            src={topic.image}
+            src={topic.char_img}
             alt={topic.topic}
             className={styles.topic_image}
           />
@@ -37,7 +39,7 @@ const TopicCard = ({ topic }) => {
       </span>
       <div className={styles.topic_text_container}>
         <div className={styles.topic_Name}>
-        <Link to={`/posts/${topic.topicID}`}>{topic.user}</Link>
+        <Link to={`/posts/${topic.topicID}`}>{topic.character}</Link>
         </div>
         <div className={styles.topic_Content}>
           {/* <div className="topic_User">{topic.user}</div> */}
