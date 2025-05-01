@@ -28,6 +28,7 @@ const Navbar = () => {
 
     const search = async () => {
         console.log("Searching for " + searchQuery);
+        console.log("Logged in as user:", user?.username);
 
         const response = await fetch(`/api/threads/search?q=${searchQuery}`);
         const data = await response.json();
@@ -60,8 +61,8 @@ const Navbar = () => {
             <div className={styles.navAccount}>
                 {user ? ( 
                     <div className={styles.profile_active}>
-                        <Link to="/createPost">New Post</Link>
-                        <Link to="/profile">Profile</Link>
+                        {/* <Link to="/createPost">New Post</Link> */}
+                        <Link to="/profile">{user?.username}</Link>
                         <button 
                             onClick={handleLogout}
                             className={styles.profile_active}

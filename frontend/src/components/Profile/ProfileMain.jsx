@@ -1,14 +1,18 @@
-import { useParams } from 'react-router-dom';
 import styles from './profile.module.css';
 import { Link } from 'react-router-dom';
+// import { useContext } from "react";
+import { useUserStore } from "../../store/user"; // Zustand store for user state    
+import { AuthContext } from "../../contexts/AuthContext"; // Context for authentication
 
 const ProfileMain = () => {
-  const { username } = useParams();
 
   // In the future, maybe add a switch to each option here?
 
+  const { user } = useUserStore();
+  // user? = user might be null, so it'll get data from user instead.
+
   const userData = {
-    username: "Dummy",
+    username: user?.username,
     avatar: "https://forums.stardewvalley.net/styles/classic/default_avi.jpg",
     bio: "why am I so sad.",
     joinDate: "Joined during The Great Depression",
