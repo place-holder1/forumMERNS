@@ -3,7 +3,6 @@ D:
 - css
 
 E:
-- profile page
 - new post page/functionality
 - post functionality
 - topic functionality
