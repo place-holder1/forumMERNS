@@ -61,10 +61,12 @@
 .tabWrapper {
   /* Me no like right now */
   width: 100%;
+  /* max-width: 100rem; */
   /* max-width: 1600px; */
   margin: 0 auto;
   display: inline-flex;
-  justify-content: center;
+  margin-left: 13rem
+  /* justify-content: center; */
 }
 
 .frontMain {
