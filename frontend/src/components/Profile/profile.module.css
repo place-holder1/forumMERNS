@@ -189,12 +189,12 @@
     flex-direction: column;
     gap: 1rem;
   }
-  .editProfileForm label {
+  .formLabel {
     font-size: 1rem;
     color: var(--text-color);
   }
-  .editProfileForm input,
-  .editProfileForm textarea {
+  .formLabel input,
+  .formLabel textarea {
     padding: 0.5rem;
     border: 1px solid var(--divider-color);
     border-radius: 0.5rem;
@@ -225,7 +225,7 @@
     background-color: var(--disabled-button-color);
     cursor: not-allowed;
   }
-  
+
 
 
 }

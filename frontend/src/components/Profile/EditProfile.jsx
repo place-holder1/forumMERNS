@@ -51,51 +51,42 @@ const EditProfile = () => {
                 <form className={styles.editProfileForm} onSubmit={handleSubmit}>
                     <h2 className={styles.editProfileTitle}>Edit Profile</h2>
 
-                    <div className={styles.formGrid}>
-                        <div className={styles.formGroup}>
-                            <label className={styles.formLabel}>Username:</label>
-                            <input
-                                type="text"
-                                name="username"
-                                value={profileData.username}
-                                onChange={handleInputChange}
-                                className={styles.formInput}
-                            />
-                        </div>
+                    <label className={styles.formLabel}>Username:</label>
+                    <input
+                        type="text"
+                        name="username"
+                        value={profileData.username}
+                        onChange={handleInputChange}
+                        className={styles.formInput}
+                    />
 
-                        <div className={styles.formGroup}>
-                            <label className={styles.formLabel}>Profile Photo URL:</label>
-                            <input
-                                type="url"
-                                name="avatarUrl"
-                                value={profileData.avatarUrl}
-                                onChange={handleInputChange}
-                                className={styles.formInput}
-                            />
-                        </div>
 
-                        <div className={styles.formGroup}>
-                            <label className={styles.formLabel}>Email:</label>
-                            <input
-                                type="email"
-                                name="email"
-                                value={profileData.email}
-                                onChange={handleInputChange}
-                                className={styles.formInput}
-                                required
-                            />
-                        </div>
+                    <label className={styles.formLabel}>Profile Photo URL:</label>
+                    <input
+                        type="url"
+                        name="avatarUrl"
+                        value={profileData.avatarUrl}
+                        onChange={handleInputChange}
+                        className={styles.formInput}
+                    />
 
-                        <div className={styles.formGroup}>
-                            <label className={styles.formLabel}>Bio:</label>
-                            <textarea
-                                name="bio"
-                                value={profileData.bio}
-                                onChange={handleInputChange}
-                                className={`${styles.formInput} ${styles.formTextarea}`}
-                            />
-                        </div>
-                    </div>
+                    <label className={styles.formLabel}>Email:</label>
+                    <input
+                        type="email"
+                        name="email"
+                        value={profileData.email}
+                        onChange={handleInputChange}
+                        className={styles.formInput}
+                        required
+                    />
+
+                    <label className={styles.formLabel}>Bio:</label>
+                    <textarea
+                        name="bio"
+                        value={profileData.bio}
+                        onChange={handleInputChange}
+                        className={`${styles.formInput} ${styles.formTextarea}`}
+                    />
 
                     <button type="submit" className={styles.saveButton}>
                         Save Changes
