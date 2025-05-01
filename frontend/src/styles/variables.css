@@ -1,16 +1,16 @@
 body{
     /* color scheme */
     --primary-background-color: #050505;
-    --secondary-background-color: #3F13A4;
+    --secondary-background-color:#5b13a4;
     --light-background-color: #FAFAFA;
     --text-color: #FAFAFA;
-    --light-text-color: #3F13A4;
-    --button-background-color: #6B35E8;
+    --light-text-color: #350c61;
+    --button-background-color: #8f35e8;
     --button-text-color: #FAFAFA;
     --button-hover-background-color: var(--secondary-background-color);
     --button-hover-text-color: #595959;
     --button-border-color: #ccc;
-    --link-color: #6B35E8;
+    --link-color: #8f35e8;
     --link-hover-color: var(--text-color);
     /* font */
     --font-family:'Trebuchet MS', sans-serif;
