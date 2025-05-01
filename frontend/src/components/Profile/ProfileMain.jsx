@@ -13,16 +13,15 @@ const ProfileMain = () => {
 
   const userData = {
     username: user?.username,
-    avatar: "https://forums.stardewvalley.net/styles/classic/default_avi.jpg",
+    avatarUrl: user?.avatarUrl || "https://images-ext-1.discordapp.net/external/jiW5Zq7KJs8iEBlsClaPvggLaUkKuSCLrT0KLIGGPQE/https/forums.stardewvalley.net/styles/classic/default_avi.jpg?format=webp&width=313&height=313",
     bio: "why am I so sad.",
-    joinDate: "Joined during The Great Depression",
   };
 
   return (
     <div className={styles.profileMain}>
       <div className={styles.profileHeader}>
         <img
-          src={userData.avatar}
+          src={userData.avatarUrl}
           alt={`${userData.username}'s avatar`}
           className={styles.profileAvatar}
         />
@@ -31,6 +30,11 @@ const ProfileMain = () => {
           <p className={styles.profileBio}>{userData.bio}</p>
           <p className={styles.profileJoinDate}>{userData.joinDate}</p>
         </div>
+        <button className={styles.editProfileButton}>
+          <Link to="/edit-profile" className={styles.editProfileLink}>
+            Edit Profile
+          </Link>
+        </button>
       </div>
     </div>
   );
