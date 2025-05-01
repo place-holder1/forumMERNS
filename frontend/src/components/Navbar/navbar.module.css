@@ -1,67 +1,108 @@
 .navbar {
     background-color: var(--secondary-background-color);
     color: var(--text-color);
-    padding: 1rem 3rem;
+    padding: 1.5rem 3rem;
+    /* Increased padding */
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    font-size: 1.25rem;
+    /* Base font size increased */
 }
 
 .navbar a {
     color: var(--text-color);
     text-decoration: none;
-  }
+    transition: color 0.2s ease;
+    font-size: 1.25rem;
+    /* Increased from 1rem */
+}
 
 .navLogo {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    /* Increased from 1.5rem */
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .navSearch {
+    flex: 1;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    margin: 0 2rem;
 }
 
 .searchForm {
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    max-width: 500px;
 }
 
 .searchInput {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: none;
-    width: 200px;
-}
-
-.searchInput:focus {
-    outline: none;
-    border: 1px solid #ddd;
+    padding: 0.75rem 1.25rem;
+    /* Increased padding */
+    font-size: 1.25rem;
+    /* Increased from 1rem */
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    width: 100%;
+    background-color: var(--input-background);
+    color: var(--text-color);
 }
 
 .navAccount {
-    width: 10rem;
     display: flex;
+    gap: 2rem;
+    /* Increased gap */
     align-items: center;
-    font-size: 1.5rem;
 }
 
 .profile_active {
-    width: 0px;
+    display: flex;
+    gap: 2rem;
+    /* Increased gap */
+    align-items: center;
+}
+
+.profile_active a,
+.profile_active button {
+    padding: 0.75rem 1.25rem;
+    /* Increased padding */
+    border-radius: 4px;
+    font-size: 1.25rem;
+    /* Increased from 1rem */
 }
 
 .logRegister {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex;
+    gap: 2rem;
+    /* Increased gap */
 }
 
-.null_login {
-    float: left;
-}
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        font-size: 1.1rem;
+        /* Slightly smaller on mobile */
+        padding: 1rem;
+    }
 
-.null_register {
-    float: right;
+    .navLogo {
+        font-size: 1.5rem;
+    }
+
+    .searchInput {
+        font-size: 1.1rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .profile_active a,
+    .profile_active button {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+    }
 }

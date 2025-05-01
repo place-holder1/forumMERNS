@@ -1,7 +1,5 @@
 needs:
 D:
-- Login functionality
-- log out functionality
 - css
 
 E:

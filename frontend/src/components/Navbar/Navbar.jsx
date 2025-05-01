@@ -58,12 +58,13 @@ const Navbar = () => {
             </div>
 
             <div className={styles.navAccount}>
-                {user ? ( // Check Zustand's user state instead of localStorage
+                {user ? ( 
                     <div className={styles.profile_active}>
+                        <Link to="/createPost">New Post</Link>
                         <Link to="/profile">Profile</Link>
                         <button 
                             onClick={handleLogout}
-                            className={styles.logoutButton}
+                            className={styles.profile_active}
                         >
                             Logout
                         </button>
