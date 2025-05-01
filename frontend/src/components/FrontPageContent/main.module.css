@@ -40,7 +40,7 @@
 }
 
 .tab {
-  background-color: var(--button-background-color);
+  background-color: #1a1a1a;
   padding: 0.5rem 1rem;
   text-decoration: none;
   color: var(--text-color);
@@ -63,9 +63,8 @@
   width: 100%;
   /* max-width: 1600px; */
   margin: 0 auto;
-  margin-left: 13%;
   display: inline-flex;
-  justify-content: left;
+  justify-content: center;
 }
 
 .frontMain {
