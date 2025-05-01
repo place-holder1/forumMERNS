@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import TabLinks from '../components/TabLinks/TabLinks';
 import Profile from '../components/Profile/Profile';
 import EditProfile from '../components/Profile/EditProfile';
+import styles from './profile.module.css';
+
 
 const ProfilePage = () => {
   
