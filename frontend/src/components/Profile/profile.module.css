@@ -18,14 +18,14 @@
   padding: 1rem;
   border-radius: 1rem;
   /* padding-right: 4rem; */
-  background-color: #712323;
+  background-color: var(--light-background-color);
   width: 15rem;
 }
 
 .title {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  color: rgb(34, 46, 188);
+  color: var(--light-text-color);
 }
 
 .optionsList {
@@ -57,7 +57,7 @@
 /* PROFILE MAIN */
   
 .profileMain {
-  background-color: #9f4242;
+  background-color: var(--button-background-color);
   padding: 2rem;
   margin: 2rem;
   border-radius: 12px;
