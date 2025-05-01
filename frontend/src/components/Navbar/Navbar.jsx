@@ -1,10 +1,21 @@
 import styles from "./navbar.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useUserStore } from "../../store/user"; // Zustand store for user state    
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext"; // Context for authentication
 
 const Navbar = () => {
     const [searchQuery, setSearchQuery] = useState("");
-    const [login, setLogin] = useState(false);
+    const navigate = useNavigate();
+    const { logout } = useContext(AuthContext); // Get logout from AuthContext
+    const { user, logout: storeLogout } = useUserStore(); // Get Zustand store methods
+    
+    const handleLogout = () => {
+        logout(); // Calls AuthContext's logout
+        storeLogout(); // Calls Zustand's logout
+        navigate("/"); // Redirect to home after logout
+    };
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
@@ -21,23 +32,12 @@ const Navbar = () => {
         const response = await fetch(`/api/threads/search?q=${searchQuery}`);
         const data = await response.json();
 
-        
-        if (data && data.length > 0) {
-            history.push(`/search-results?q=${searchQuery}`);
+        if (data?.length > 0) {
+            navigate(`/search-results?q=${searchQuery}`);
         } else {
             alert("No threads found.");
         }
     };
-
-    useEffect(() => {
-        // Supposedly to get API from here
-    }, []);
-
-    useEffect(() => {
-        // Check if the user is logged in (can be from localStorage, cookies, or an API)
-        const userLoggedIn = localStorage.getItem('userLoggedIn'); // Example of getting login status from localStorage
-        setLogin(userLoggedIn === 'true'); // Set login state to true or false based on localStorage
-    }, []);
 
     return (
         <nav className={styles.navbar}>
@@ -53,28 +53,28 @@ const Navbar = () => {
                         onChange={handleSearchChange}
                         placeholder="Search threads"
                         className={styles.searchInput}
-                        onKeyDown={(event) => {
-                            if (event.key === "Enter") {
-                                search();
-                            }
-                        }}
                     />
                 </form>
             </div>
 
             <div className={styles.navAccount}>
-                {login ? (
+                {user ? ( // Check Zustand's user state instead of localStorage
                     <div className={styles.profile_active}>
                         <Link to="/profile">Profile</Link>
+                        <button 
+                            onClick={handleLogout}
+                            className={styles.logoutButton}
+                        >
+                            Logout
+                        </button>
                     </div>
                 ) : (
                     <div className={styles.logRegister}>
                         <Link className={styles.null_login} to="/login">Login</Link>
-                        <Link className={styles.null_register}  to="/register">Register</Link>
+                        <Link className={styles.null_register} to="/register">Register</Link>
                     </div>
                 )}
             </div>
-
         </nav>
     );
 };

@@ -1,50 +1,31 @@
 import { createContext, useState, useLayoutEffect } from "react";
 import { useUserStore } from "../store/user";
 
-export const AuthContext = createContext();
+export const AuthContext = createContext({
+    login: () => console.error("AuthProvider missing!"),
+    logout: () => console.error("AuthProvider missing!"),
+});
 
 export const AuthProvider = ({ children }) => {
-
-    const { setUser } = useUserStore((state) => ({
-        setUser: state.setUser,
-    }));
-    const [user, setUserState] = useState(null);
+    const { setUser, logout: storeLogout } = useUserStore();
     useLayoutEffect(() => {
-        const user = localStorage.getItem("user");
-        if (user) {
-            setUserState(JSON.parse(user));
-            setUser(JSON.parse(user));
-        } else {
-            setUserState(null);
-            setUser(null);
-        }
-    }
-    , []);
-
-    const [isLogin, setIsLogin] = useState(false);
-    useLayoutEffect(() => {
-        const isLogin = localStorage.getItem("userLoggedIn");
-        if (isLogin) {
-            setIsLogin(isLogin === "true");
+        const storedLogin = localStorage.getItem("userLoggedIn");
+        if (storedLogin === null) {
+            localStorage.setItem("userLoggedIn", "false"); // Initialize if missing
         }
     }, []);
-    const login = () => {
-        setIsLogin(true);
-        localStorage.setItem("userLoggedIn", "true");
-    }
+
+    const login = (userData) => {
+        setUser(userData || {}); // Handle case where no data is passed
+    };
+
     const logout = () => {
-        setIsLogin(false);
-        localStorage.setItem("userLoggedIn", "false");
-        localStorage.removeItem("user");
-        setUserState(null);
-        setUser(null);
+        storeLogout(); // This already clears localStorage
     };
 
     return (
-        <AuthContext.Provider value={{ isLogin, login, logout }}>
+        <AuthContext.Provider value={{ login, logout }}>
             {children}
         </AuthContext.Provider>
     );
-}
-
-export default AuthContext;
+};
